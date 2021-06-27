@@ -1,0 +1,14 @@
+{
+    "id": "1",
+    "name": "Nicolas",
+    "LastName": "Moina",
+    "DataOfBirth": "2002-08-31",
+    "Age": 18,
+    "CI": 1753066925,
+    "address": "Tumbaco",
+    "email": "nicolawsmoina@gmail.com",
+    "Telephone": "0995121149",
+    "PatientType": "particular",
+    "Tratamiento": "new"
+    
+}
