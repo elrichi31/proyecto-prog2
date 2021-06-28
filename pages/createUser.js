@@ -1,10 +1,11 @@
 import Button from "./Components/Button";
-import styles from "../styles/Home2.module.css";
-export default function Home() {
+import Navbar from "./Components/Navbar"
+export default function createUser() {
   return (
-    <form>
+    <div>
+      <Navbar></Navbar>
       <h1>Create user</h1>
-      <div class="row g-3">
+      <form class="row g-3">
         <div class="col-sm-4">
           <input
             type="text"
@@ -94,7 +95,7 @@ export default function Home() {
         <div class="col-3">
           <button type="submit" class="btn btn-primary">Submit</button> 
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
