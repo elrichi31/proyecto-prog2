@@ -20,7 +20,7 @@ export default function Navbar(){
                         </li>
                         <li className={`nav-item ${styles.nav_item}`}>
                             <Link href='/createAppointment'><a className="nav-link text-reset">Create appointment</a></Link>
-                        </li>
+                        </li>                   
                     </ul>
                 </div>
             </div>
