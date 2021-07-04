@@ -18,3 +18,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.MuiInputBase-input.MuiInput-input {
+	text-align: center;
+}

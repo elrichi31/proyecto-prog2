@@ -1,0 +1,12 @@
+.div_total{
+    border: 1px solid rgb(196, 193, 193);
+    border-radius: 5px;
+	width: 100%;
+    text-align: center;
+    padding-top: 5px;
+}
+.date{
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
