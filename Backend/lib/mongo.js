@@ -23,19 +23,20 @@ class MongoLib{
                 })
             })
         }
+        return MongoLib.connection
     }
-    getAll(collection, query){
-        return this.connect.then(db => {
-            return db.collection(collection).find(query).toArray()
+    getAll(collection){
+        return this.connect().then(db => {
+            return db.collection(collection).find().toArray()
         })
     }
     get(collection, id){
-        return this.connect.then(db => {
+        return this.connect().then(db => {
             return db.collection(collection).findOne({_id: ObjectId(id)})
         })
     }
     create(collection, data){
-        return this.connect.then(db => {
+        return this.connect().then(db => {
             return db.collection(collection).insertOne(data)
         }).then(result => result.insertedId)
     }

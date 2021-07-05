@@ -1,14 +1,14 @@
 {
-    "id": "1",
-    "name": "Nicolas",
-    "LastName": "Moina",
-    "DataOfBirth": "2002-08-31",
-    "Age": 18,
-    "CI": 1753066925,
-    "address": "Tumbaco",
+    "name": "nicolas",
+    "surname": "moina",
     "email": "nicolawsmoina@gmail.com",
-    "Telephone": "0995121149",
-    "PatientType": "particular",
-    "Tratamiento": "new"
+    "age": 10,
+    "passportCI": "1753066925", 
+    "cellphone": "0995121149",
+    "citizenship": "Ecuador",
+    "civilState": "soltero",
+    "profession": "Doctor",
+    "address": "Quito la armenia",
+    "address2": "Conjunto 4"
     
 }

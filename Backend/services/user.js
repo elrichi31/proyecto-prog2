@@ -5,21 +5,25 @@ class UsersService {
         this.collection = "users"
         this.mongoDB = new mongoLib()
     }
-    async getUser({email}){
-        const [user] = await this.mongoDB.getAll(this.collection, {email})
-        return user
+    async getUsers(){
+        const users = await this.mongoDB.getAll(this.collection)
+        return users || []
+    }
+    async getUser(id){
+        const user = await this.mongoDB.get(this.collection, id)
+        return user || {}
     }
     async createUser({user}){
-        const {firstName, lastName, email, age, ci, telephone} = user
-        const createUserId = await this.mongoDB.create(this.collection,{
-            firstName,
-            lastName,
-            email,
-            age,
-            ci, 
-            telephone
-        })
+        const createUserId = await this.mongoDB.create(this.collection, user)
         return createUserId
+    }
+    async updateUser(userId, data){
+        const updateUserId = await this.mongoDB.update(this.collection, userId, data)
+        return updateUserId
+    }
+    async deleteUser(userId){
+        const deleteUserId = await this.mongoDB.delete(this.collection, userId)
+        return deleteUserId
     }
     async validateUser({user}){
         const queryUser = await this.mongoDB.getUser({email: user.email})
