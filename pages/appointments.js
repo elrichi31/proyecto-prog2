@@ -1,6 +1,6 @@
 import Navbar from "./Components/Navbar";
 import Dates from "./Components/Date";
-
+import axios from 'axios';
 export default function appointments() {
   const arr = [10, 3, 5, 6];
   let pago = true;
@@ -38,10 +38,10 @@ export default function appointments() {
                   <Dates type="define"></Dates>
                 </td>
                 <td>
-                  <div class="form-check form-switch">
+                  <div className="form-check form-switch">
                       {
-                          pago ? <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" checked disabled/>
-                          : <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled/>
+                          pago ? <input className="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" checked disabled/>
+                          : <input className="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled/>
                       }
                   </div>
                 </td>

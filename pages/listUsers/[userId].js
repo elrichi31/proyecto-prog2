@@ -1,8 +1,13 @@
-import { useState } from "react";
-import Navbar from "./Components/Navbar";
-import CreateForm from './Components/CreateForm'
-import axios from 'axios'
-export default function createUser() {
+import Navbar from "../Components/Navbar";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Router from "next/router";
+import CreateForm from '../Components/CreateForm'
+
+export default function updateUser() {
+  const router = useRouter();
+  const id = router.query;
   const [form, setValues] = useState({
     name: "",
     email: "",
@@ -15,9 +20,19 @@ export default function createUser() {
     cellphone: "",
     address: "",
     address2: "",
-  });
+  })
+  useEffect(() => {
+    axios({
+      url: `http://localhost:4000/api/users/${id.userId}`,
+      method: "GET",
+    })
+      .then((response) => setValues(response.data.data))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   const handleSubmit = (event) => {
-    axios.post(`http://localhost:4000/api/users`, {
+    axios.put(`http://localhost:4000/api/users/${id.userId}`, {
         name: form.name,
         email: form.email,
         surname: form.surname,
@@ -46,8 +61,14 @@ export default function createUser() {
   return (
     <div>
       <Navbar></Navbar>
-      <h1>Create user</h1>
+      <h1>Update user</h1>
       <CreateForm form={form} handleSubmit={handleSubmit} handleInput={handleInput}></CreateForm>
     </div>
+    
   );
 }
+
+updateUser.getInitialProps = async (ctx) => {
+  const userId = ctx.query;
+  return { userId: userId };
+};

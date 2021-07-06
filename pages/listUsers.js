@@ -1,6 +1,25 @@
 import Navbar from "./Components/Navbar";
+import axios from 'axios';
+import {useState, useEffect} from 'react'
+import Router from "next/router";
+
 export default function listUsers() {
-    const arr = [10, 3, 5 ,6]
+    const [listUsers, setListUsers] = useState([])
+    useEffect(() =>{
+      axios({
+        url: "http://localhost:4000/api/users",
+        method: "GET",
+      }).then(response => {return response})
+      .then(response => setListUsers(response.data.data))
+      .catch(error =>{
+        console.log(error)
+      })
+    }, [])
+    const handleDelete = (id) => {
+      const newArr = listUsers.filter(user => user._id != id);
+      setListUsers(newArr)
+      axios.delete(`http://localhost:4000/api/users/${id}`).then(response => {console.log(response)})
+    }
   return (
     <div>
       <Navbar></Navbar>
@@ -18,19 +37,18 @@ export default function listUsers() {
         </thead>
         <tbody>
             {
-                arr.map(id => {
+                listUsers.map(user => {
                     return (
-                        <tr key={id}>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>nick1201@gmail.com</td>
-                            <td>0996584479</td>
+                        <tr key={user._id}>
+                            <td>{user.passportCI}</td>
+                            <td>{user.name}</td>
+                            <td>{user.surname}</td>
+                            <td>{user.email}</td>
+                            <td>{user.cellphone}</td>
                             <td>
-                              <button className="btn btn-primary btn-block">Actualizar</button> <button className="btn btn-success">Crear cita</button> <button className="btn btn-danger">Borrar</button>
+                              <button className="btn btn-primary btn-block" onClick={e => Router.push('/listUsers/[userId]', `/listUsers/${user._id}`)}>Actualizar</button> <button className="btn btn-success">Crear cita</button> <button className="btn btn-danger" onClick={ e => {handleDelete(user._id)}}>Borrar</button>
                             </td>
                         </tr>
-
                     )
                 })
             }
