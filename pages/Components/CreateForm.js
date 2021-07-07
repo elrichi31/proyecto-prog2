@@ -10,7 +10,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             className="form-control"
             aria-label="Nombre"
             name="name"
-            value={form.name}
+            defaultValue={form.name}
             onChange={handleInput}
             id="validationCustom1"
             required
@@ -24,7 +24,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             className="form-control"
             aria-label="Apellido"
             name="surname"
-            value={form.surname}
+            defaultValue={form.surname}
             onChange={handleInput}
           />
         </div>
@@ -35,7 +35,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             className="form-control"
             aria-label="Email"
             name="email"
-            value={form.email}
+            defaultValue={form.email}
             onChange={handleInput}
           />
         </div>
@@ -46,7 +46,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             className="form-control"
             aria-label="CI"
             name="passportCI"
-            value={form.passportCI}
+            defaultValue={form.passportCI}
             onChange={handleInput}
           />
         </div>
@@ -57,7 +57,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             className="form-control"
             aria-label="Edad"
             name="age"
-            value={form.age}
+            defaultValue={form.age}
             onChange={handleInput}
           />
         </div>
@@ -68,7 +68,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             className="form-control"
             aria-label="Estado civil"
             name="civilState"
-            value={form.civilState}
+            defaultValue={form.civilState}
             onChange={handleInput}
           />
         </div>
@@ -79,7 +79,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             className="form-control"
             aria-label="Nacionalidad"
             name="citizenship"
-            value={form.citizenship}
+            defaultValue={form.citizenship}
             onChange={handleInput}
           />
         </div>
@@ -90,7 +90,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             className="form-control"
             aria-label="Profesión"
             name="profession"
-            value={form.profession}
+            defaultValue={form.profession}
             onChange={handleInput}
           />
         </div>
@@ -101,7 +101,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             className="form-control"
             aria-label="Celular"
             name="cellphone"
-            value={form.cellphone}
+            defaultValue={form.cellphone}
             onChange={handleInput}
           />
         </div>
@@ -115,7 +115,8 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             id="inputAddress"
             placeholder="1234 Main St"
             name="address"
-            value={form.address}
+            // value={form.address}
+            defaultValue={form.address}
             onChange={handleInput}
           />
         </div>
@@ -129,7 +130,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             id="inputAddress2"
             placeholder="Apartment, studio, or floor"
             name="address2"
-            value={form.address2}
+            defaultValue={form.address2}
             onChange={handleInput}
           />
         </div>

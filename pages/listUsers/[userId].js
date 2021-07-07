@@ -21,40 +21,30 @@ export default function updateUser() {
     address: "",
     address2: "",
   })
+  const [valueChanged, setValueChanged] = useState([])
   useEffect(() => {
     axios({
       url: `http://localhost:4000/api/users/${id.userId}`,
       method: "GET",
     })
-      .then((response) => setValues(response.data.data))
+      .then((response) => setValues(response.data.data[0]))
       .catch((error) => {
         console.log(error);
       });
   }, []);
   const handleSubmit = (event) => {
-    axios.put(`http://localhost:4000/api/users/${id.userId}`, {
-        name: form.name,
-        email: form.email,
-        surname: form.surname,
-        passportCI: form.passportCI,
-        age: form.age,
-        civilState: form.civilState,
-        citizenship: form.citizenship,
-        profession: form.profession,
-        cellphone: form.cellphone,
-        address: form.address,
-        address2: form.address2,
-    })
+    axios.put(`http://localhost:4000/api/users/${id.userId}`,valueChanged)
         .then(response => {console.log(response)})
         .catch((error) => {
             console.log(error)
         })
     event.preventDefault();
+    console.log(valueChanged) 
     window.location.href = '/listUsers'
   }
   const handleInput = (event) => {
-    setValues({
-      ...form,
+    setValueChanged({
+      ...valueChanged,
       [event.target.name]: event.target.value,
     });
   };
