@@ -1,6 +1,7 @@
 import Navbar from "./Components/Navbar";
 import Dates from "./Components/Date";
 import axios from 'axios';
+import {useState, useEffect} from 'react'
 export default function appointments() {
   const arr = [10, 3, 5, 6];
   let pago = true;
@@ -10,11 +11,16 @@ export default function appointments() {
   } else {
       color = "danger"
   }
+  const [app, setApp] = useState([])
+  useEffect(() =>{
+    axios.get('http://localhost:4000/api/appointments').then(response => setApp(response.data.data)).catch(error => {return error})
+  }, [])
+  console.log(app)
   return (
     <div>
       <Navbar></Navbar>
       <h1>Appointments</h1>
-      <table className="table">
+      <table className="table"> 
         <thead>
           <tr>
             <th scope="col">Nombre</th>
@@ -27,15 +33,15 @@ export default function appointments() {
           </tr>
         </thead>
         <tbody>
-          {arr.map((id) => {
+          {app.map((appointment) => {
             return (
-              <tr key={id} className={`table-${color}`}>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>nick1201@gmail.com</td>
-                <td>0996584479</td>
+              <tr key={appointment._id} className={`table-${color}`}>
+                <td>{appointment.name}</td>
+                <td>{appointment.surname}</td>
+                <td>{appointment.email}</td>
+                <td>{appointment.cellphone}</td>
                 <td>
-                  <Dates type="define"></Dates>
+                  <Dates type="define" define={appointment.appointmentDate}></Dates>
                 </td>
                 <td>
                   <div className="form-check form-switch">
@@ -46,11 +52,12 @@ export default function appointments() {
                   </div>
                 </td>
                 <td>
-                  <button className="btn btn-primary btn-block">
+                  <button className="btn btn-primary btn-block btn-sm mb-1">
                     Actualizar
                   </button>{" "}
-                  <button className="btn btn-success">Generar Factura</button>{" "}
-                  <button className="btn btn-danger">Borrar</button>
+                  <button className="btn btn-success btn-sm mb-1">Generar Factura</button>{" "} <br></br>
+                  <button className="btn btn-danger btn-sm">Borrar</button>{" "}
+                  <button className="btn btn-info btn-sm">Crear usuario</button>
                 </td>
               </tr>
             );

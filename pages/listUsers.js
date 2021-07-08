@@ -46,7 +46,7 @@ export default function listUsers() {
                             <td>{user.email}</td>
                             <td>{user.cellphone}</td>
                             <td>
-                              <button className="btn btn-primary btn-block" onClick={e => Router.push('/listUsers/[userId]', `/listUsers/${user._id}`)}>Actualizar</button> <button className="btn btn-success">Crear cita</button> <button className="btn btn-danger" onClick={ e => {handleDelete(user._id)}}>Borrar</button>
+                              <button className="btn btn-primary btn-sm" onClick={e => Router.push('/listUsers/[userId]', `/listUsers/${user._id}`)}>Actualizar</button> <button className="btn btn-success btn-sm">Crear cita</button> <button className="btn btn-danger btn-sm" onClick={ e => {handleDelete(user._id)}}>Borrar</button>
                             </td>
                         </tr>
                     )
