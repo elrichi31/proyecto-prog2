@@ -1,6 +1,5 @@
 const userRoute = require('express').Router()
 const UsersService = require('../services/user')
-const mongoose = require('mongoose')
 
 const UsersServices = new UsersService()
 userRoute.get('/', async (req, res, next) => {

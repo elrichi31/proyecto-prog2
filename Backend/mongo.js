@@ -16,30 +16,5 @@ mongoose.connect(MONGO_URI,{
 }).catch((err) =>{
     console.log(err)
 })
-// User.find({}).then(res => {
-//     console.log(res)
-//     mongoose.connection.close()
-// })
 
-// const user = new User(
-//     {
-//         "name": "Diego",
-//         "surname": "Fernandez",
-//         "email": "diegofernandez@gmail.com",
-//         "age": 33,
-//         "passportCI": "1712345678", 
-//         "cellphone": "0994567890",
-//         "citizenship": "Argentina",
-//         "civilState": "casado",
-//         "profession": "Broker",
-//         "address": "Ambato",
-//         "address2": "dep 10f" 
-//     }
-// )
-
-// user.save()
-//     .then(res => {
-//         console.log(res) 
-//         mongoose.connection.close()
-//     }).catch(err => {console.log(err)})
  

@@ -17,7 +17,7 @@ app.use(cors({
 
 //Routes
 app.use('/api/users', users);
-//app.use('/api/appointments', appointments);
+app.use('/api/appointments', appointments);
 
 //Initialization
 app.listen(process.env.PORT, () => {

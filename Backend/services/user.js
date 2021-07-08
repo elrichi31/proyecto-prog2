@@ -32,7 +32,6 @@ class UsersService {
         return createUserId
     }
     async updateUser(userId, data){
-        console.log(data, userId)
         const updateUserId = await User.findByIdAndUpdate({_id:userId}, data)
         return updateUserId
     }
