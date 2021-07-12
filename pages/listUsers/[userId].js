@@ -2,8 +2,7 @@ import Navbar from "../Components/Navbar";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Router from "next/router";
-import CreateForm from '../Components/CreateForm'
+import CreateForm from "../Components/CreateForm";
 
 export default function updateUser() {
   const router = useRouter();
@@ -20,11 +19,11 @@ export default function updateUser() {
     cellphone: "",
     address: "",
     address2: "",
-  })
-  const [valueChanged, setValueChanged] = useState([])
+  });
+  const [valueChanged, setValueChanged] = useState([]);
   useEffect(() => {
     axios({
-      url: `http://localhost:4000/api/users/${id.userId}`,
+      url: `https://prog-proyect.vercel.app/api/users/${id.userId}`,
       method: "GET",
     })
       .then((response) => setValues(response.data.data[0]))
@@ -33,15 +32,20 @@ export default function updateUser() {
       });
   }, []);
   const handleSubmit = (event) => {
-    axios.put(`http://localhost:4000/api/users/${id.userId}`,valueChanged)
-        .then(response => {console.log(response)})
-        .catch((error) => {
-            console.log(error)
-        })
+    axios({
+      url: `https://prog-proyect.vercel.app/api/users/${id.userId}`,
+      method: 'PUT',
+      data: valueChanged
+    })
+      .then((response) => {
+        console.log(response);
+        window.location.replace("/listUsers")
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     event.preventDefault();
-    console.log(valueChanged) 
-    window.location.href = '/listUsers'
-  }
+  };
   const handleInput = (event) => {
     setValueChanged({
       ...valueChanged,
@@ -52,9 +56,12 @@ export default function updateUser() {
     <div>
       <Navbar></Navbar>
       <h1>Update user</h1>
-      <CreateForm form={form} handleSubmit={handleSubmit} handleInput={handleInput}></CreateForm>
+      <CreateForm
+        form={form}
+        handleSubmit={handleSubmit}
+        handleInput={handleInput}
+      ></CreateForm>
     </div>
-    
   );
 }
 

@@ -1,8 +1,11 @@
-
 export default function CreateForm({ form, handleSubmit, handleInput }) {
   return (
     <div>
-      <form className="row g-3 needs-validation" onSubmit={handleSubmit} noValidate>
+      <form
+        className="row g-3 needs-validation"
+        onSubmit={handleSubmit}
+        noValidate
+      >
         <div className="col-sm-4">
           <label>Nombre</label>
           <input

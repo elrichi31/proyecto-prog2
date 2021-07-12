@@ -17,7 +17,7 @@ export default function createUser() {
     address2: "",
   });
   const handleSubmit = (event) => {
-    axios.post(`http://localhost:4000/api/users`, {
+    axios.post(`https://prog-proyect.vercel.app/api/users`, {
         name: form.name,
         email: form.email,
         surname: form.surname,
@@ -30,12 +30,14 @@ export default function createUser() {
         address: form.address,
         address2: form.address2,
     })
-        .then(response => {console.log(response)})
+        .then(response => {
+          console.log(response)
+          window.location.replace("/listUsers")
+        })
         .catch((error) => {
             console.log(error)
         })
     event.preventDefault();
-    window.location.href = '/listUsers'
   }
   const handleInput = (event) => {
     setValues({
