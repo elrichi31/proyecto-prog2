@@ -9,6 +9,8 @@ export default function createAppointment() {
     cellphone: "",
     email: "",
     reason: "",
+    userId: "",
+    payment: false,
   });
   const [fecha, cambiarFecha] = useState(new Date());
   const handleInput = (event) => {

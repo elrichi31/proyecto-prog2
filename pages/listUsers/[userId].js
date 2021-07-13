@@ -12,7 +12,7 @@ export default function updateUser() {
     email: "",
     surname: "",
     passportCI: "",
-    age: 0,
+    age: "",
     civilState: "",
     citizenship: "",
     profession: "",
@@ -21,18 +21,22 @@ export default function updateUser() {
     address2: "",
   });
   const [valueChanged, setValueChanged] = useState([]);
-  useEffect(() => {
-    axios({
+  useEffect(async () => {
+    await axios({
       url: `https://prog-proyect.vercel.app/api/users/${id.userId}`,
       method: "GET",
     })
-      .then((response) => setValues(response.data.data[0]))
+      .then((response) => {
+        setValues(response.data.data[0])
+        console.log(response.data.data[0].age)
+      })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-  const handleSubmit = (event) => {
-    axios({
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    await axios({
       url: `https://prog-proyect.vercel.app/api/users/${id.userId}`,
       method: 'PUT',
       data: valueChanged
@@ -44,7 +48,7 @@ export default function updateUser() {
       .catch((error) => {
         console.log(error);
       });
-    event.preventDefault();
+    
   };
   const handleInput = (event) => {
     setValueChanged({

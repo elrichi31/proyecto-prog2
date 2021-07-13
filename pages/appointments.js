@@ -1,25 +1,28 @@
 import Navbar from "./Components/Navbar";
-import Dates from "./Components/Date";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Router from "next/router";
+import PerApp from "./Components/PerApp";
 export default function appointments() {
-  let pago = true;
-  let color = "";
-  if (pago) {
-    color = "success";
-  } else {
-    color = "danger";
-  }
   const [app, setApp] = useState([]);
   useEffect(() => {
     axios
       .get("https://prog-proyect.vercel.app/api/appointments")
-      .then((response) => setApp(response.data.data))
+      .then((response) => {
+        setApp(response.data.data);
+      })
       .catch((error) => {
         return error;
       });
   }, []);
+  const handleDelete = (id) => {
+    const newArr = app.filter((user) => user._id != id);
+    setApp(newArr);
+    axios
+      .delete(`https://prog-proyect.vercel.app/api/appointments/${id}`)
+      .then((response) => {
+        console.log(response);
+      });
+  };
   return (
     <div>
       <Navbar></Navbar>
@@ -49,79 +52,15 @@ export default function appointments() {
         </thead>
         <tbody>
           {app.map((appointment) => {
-            return (
-              <tr key={appointment._id} className={`table-${color}`}>
-                <td align="center">{appointment.name}</td>
-                <td align="center">{appointment.surname}</td>
-                <td align="center">{appointment.email}</td>
-                <td align="center">{appointment.cellphone}</td>
-                <td align="center">
-                  <Dates
-                    type="define"
-                    define={appointment.appointmentDate}
-                  ></Dates>
-                </td>
-                <td align="center">
-                  <div className="form-check form-switch">
-                    {pago ? (
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        id="flexSwitchCheckDisabled"
-                        checked
-                        disabled
-                      />
-                    ) : (
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        id="flexSwitchCheckDisabled"
-                        disabled
-                      />
-                    )}
-                  </div>
-                </td>
-                <td align="center">
-                  <div className="form-check form-switch">
-                    {pago ? (
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        id="flexSwitchCheckDisabled"
-                        checked
-                        disabled
-                      />
-                    ) : (
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        id="flexSwitchCheckDisabled"
-                        disabled
-                      />
-                    )}
-                  </div>
-                </td>
-                <td>
-                  <button
-                    className="btn btn-primary btn-block btn-sm mb-1"
-                    onClick={(e) =>
-                      Router.push(
-                        "/appointments/[appointmentId]",
-                        `/appointments/${appointment._id}`
-                      )
-                    }
-                  >
-                    Actualizar
-                  </button>{" "}
-                  <button className="btn btn-success btn-sm mb-1">
-                    Generar Factura
-                  </button>{" "}
-                  <br></br>
-                  <button className="btn btn-danger btn-sm">Borrar</button>{" "}
-                  <button className="btn btn-info btn-sm">Crear usuario</button>
-                </td>
-              </tr>
-            );
+            if (appointment.payment) {
+              return (
+                <PerApp appointment={appointment} handleDelete={handleDelete} color="success" key={appointment._id}></PerApp>
+              );
+            } else {
+              return (
+                <PerApp appointment={appointment} handleDelete={handleDelete} color="danger" key={appointment._id}></PerApp>
+              );
+            }
           })}
         </tbody>
       </table>
