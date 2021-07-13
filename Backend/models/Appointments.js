@@ -6,7 +6,9 @@ const appointmentsSchema = mongoose.Schema({
     cellphone: String,
     appointmentDate: Date,
     email: String,
-    reason: String
+    reason: String,
+    userId: String,
+    payment: Boolean,
 })
 appointmentsSchema.set('toJSON', {
     transform: (document, returnedObject) => {
