@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const users = require('./routes/user');
 const appointments = require('./routes/appointments')
 const cors = require('cors');
+const helmet = require('helmet')
 
 require('./mongo.js')
 app = express();
@@ -10,9 +11,10 @@ require("dotenv").config()
 
 //Middlewares
 app.use(express.json())
-app.use(morgan('dev'));
+app.use(helmet())
+app.use(helmet.permittedCrossDomainPolicies())
 app.use(cors({
-    origin: "http://localhost:3000"
+    origin: "*",
 }))
 
 //Routes

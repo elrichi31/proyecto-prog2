@@ -1,0 +1,22 @@
+{
+    "name": "prog-proyect",
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.js"
+      }
+    ],
+    "env": {
+      "DB_USER": "@progproyect-db-user",
+      "DB_PASSWORD": "@progproyect-db-password",
+      "DB_HOST": "@progproyect-db-host",
+      "DB_NAME": "@progproyect-db-name"
+    }
+  }

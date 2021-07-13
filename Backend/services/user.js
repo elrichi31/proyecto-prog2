@@ -1,10 +1,10 @@
-const mongoLib = require("../lib/mongo")
+//const mongoLib = require("../lib/mongo")
 const mongoose = require('mongoose')
 const User = require('../models/User')
 class UsersService {
     constructor(){
         this.collection = "users"
-        this.mongoDB = new mongoLib()
+        //this.mongoDB = new mongoLib()
     }
     async getUsers(){
         const users = await User.find({}).then(user => {return user}).catch(err => {return err})
