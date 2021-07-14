@@ -2,7 +2,8 @@ import Navbar from "./Components/Navbar";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Router from "next/router";
-
+import Search from "./Components/Search";
+import styles from "../styles/listUsers.module.css"
 export default function listUsers() {
   const [listUsers, setListUsers] = useState([]);
   useEffect(() => {
@@ -29,7 +30,8 @@ export default function listUsers() {
     <div>
       <Navbar></Navbar>
       <h1>List of users</h1>
-      <table className="table table-striped">
+      <Search users={listUsers} handleDelete={handleDelete}></Search>
+      <table className={`table table-striped ${styles.table}`} >
         <thead>
           <tr>
             <th scope="col">Passport / CI</th>

@@ -55,7 +55,14 @@ export default function createUser() {
     await axios
       .post("https://prog-proyect.vercel.app/api/users", form)
       .then((response) => {
-        window.location.replace("/listUsers");
+        axios
+          .put(
+            `https://prog-proyect.vercel.app/api/appointments/${id.appointmentId}`,
+            { userId: response.data.data }
+          )
+          .then((response) => {
+            window.location.replace("/listUsers");
+          });
       });
   };
   return (

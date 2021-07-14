@@ -1,0 +1,27 @@
+.input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid;
+    border-radius: 25px;
+    font-family: "Muli", sans-serif;
+    font-size: 16px;
+    height: 35px;
+    outline: none;
+    padding: 0px 20px;
+    width: 100%;
+  }
+  .main__title {
+    font-size: 25px;
+  }
+  .main {
+    /* display: flex; */
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70px;
+    border-radius: 0px 0px 40px 40px;
+  }
+  .total{
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+  }
