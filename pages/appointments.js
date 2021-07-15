@@ -36,6 +36,9 @@ export default function appointments() {
             <th scope="col" className="text-center">
               Apellido
             </th>
+            <th scope="col" className="text-center"> {/* Arreglar columna */}
+              Tratamiento
+            </th>
             <th scope="col" className="text-center">
               Email
             </th>
