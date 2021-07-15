@@ -73,6 +73,19 @@ export default function AppForm({
       </div>
       <div className="mb-3">
         <label htmlFor="exampleFormControlTextarea1" className="form-label">
+          Tratamiento
+        </label>
+        <textarea
+          className="form-control"
+          id="exampleFormControlTextarea1"
+          rows="1"
+          defaultValue={form.reason}
+          onChange={handleInput}
+          name="tratamiento"
+        ></textarea>
+      </div>
+      <div className="mb-3">
+        <label htmlFor="exampleFormControlTextarea1" className="form-label">
           Razón de la cita
         </label>
         <textarea

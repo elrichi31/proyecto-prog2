@@ -6,7 +6,7 @@ export default function Navbar(){
     return (
         <nav className={`navbar navbar-expand-lg fixed-top ${styles.container}`}>
             <div className="container-fluid">
-                <a className="navbar-brand text-reset" href="/">Logo</a>
+                <a className="navbar-brand text-reset" href="/"> <img id="logo" src="https://cdn2.iconfinder.com/data/icons/medical-collection-1/48/teeth-512.png" width="50" height="50" /> Denta<font color='blue'>List</font> </a>
                 <div className=" d-flex justify-content-end">
                     <ul className="navbar-nav">
                         <li className={`nav-item ${styles.nav_item}`}>

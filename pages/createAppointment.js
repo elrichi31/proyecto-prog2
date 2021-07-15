@@ -9,6 +9,7 @@ export default function createAppointment() {
     cellphone: "",
     email: "",
     reason: "",
+    tratamiento: "",
     userId: "",
     payment: false,
   });
