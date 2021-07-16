@@ -10,7 +10,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
         <div>
           <h2>Información personal</h2>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Fecha de registro</label>
           <input
             type="date"
@@ -49,7 +49,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
           />
         </div>
 
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Fecha de nacimiento</label>
           <input
             type="date"
@@ -88,7 +88,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
         <div className="col-sm-3">
           <label>Pasaporte / CI</label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             aria-label="CI"
             name="passportCI"
@@ -121,7 +121,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             onChange={handleInput}
           /> */}
         </div>
-        <div className="col-sm-3">
+        <div className="col-sm-2">
           <label>Nacionalidad</label>
           <input
             type="text"
@@ -132,7 +132,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             onChange={handleInput}
           />
         </div>
-        <div className="col-sm-5">
+        <div className="col-sm-4">
           <label>Profesión</label>
           <input
             type="text"
@@ -165,7 +165,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             onChange={handleInput}
           />
         </div>
-        <div className="col-12">
+        <div className="col-6">
           <label htmlFor="inputAddress" className="form-label">
             Dirección residencial
           </label>
@@ -181,7 +181,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
           />
         </div>
         
-        <div className="col-12">
+        <div className="col-6">
           <label htmlFor="inputAddress2" className="form-label">
             Dirección adicional
           </label>
@@ -236,7 +236,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
 {/* Opcional medios de contacto */}
 
         <div className="col-sm-3">
-          <label>Paciente particular o convenio empresarial</label>
+          <label>Paciente particular o empresarial</label>
           <select name="" id="type" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
            aria-label="type"
@@ -248,7 +248,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
           >
             <option value="">Seleccionar</option>
             <option value="Particular">Particular</option>
-            <option value="Empresarial">Empresarial</option>
+            <option value="Empresarial">Convenio Empresarial</option>
           </select>
           {/* <input
             type="text"
@@ -287,7 +287,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
           />
         </div>
 
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Fecha de nacimiento</label>
           <input
             type="date"
@@ -347,7 +347,8 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
         </div>
 {/* Representante legal */}
         <h3>Representante legal</h3>
-        Llenar si el paciente es menor de edad
+        <h5> Llenar si el paciente es menor de edad</h5>
+       
 
         <div className="col-sm-4">
           <label>Parentesco</label>
@@ -509,7 +510,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
 
         <h3>Antecedentes Patológicos</h3>
         <h5>¿Ha padecido o padece alguna de las siguientes condiciones?</h5>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Prolapso: válvula mitral</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -524,8 +525,8 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        --revisar--
-        <div className="col-sm-4">
+        {/* --revisar-- */}
+        <div className="col-sm-2">
           <label>Tratamiendo de radiación</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -540,7 +541,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Huesos artificiales</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -555,7 +556,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Consumo de drogas/alcohol</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -571,7 +572,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             </select>
         </div>
 
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Dificultades respiratorias</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -586,7 +587,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Transfusión de sangre</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -601,7 +602,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Cáncer</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -616,7 +617,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Defecto congénito del corazón</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -631,7 +632,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Ataque al corazón</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -646,7 +647,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Hemorragia/Sangrado fácil</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -661,7 +662,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Cirugía del corazón</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -676,7 +677,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Diabetes/Tuberculosis</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -691,8 +692,298 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Presión arterial alta/baja</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        
+
+{/*Pendiente texto razón */}
+
+
+        <div className="col-sm-2">
+          <label>Epilepsia/Convulsiones</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Enfermedades venereas</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Gastritis</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Marcapasos</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Válvulas artificiales</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Herpes</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Glaucoma</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Asma</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Hepatitis</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Problemas del riñon</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>SIDA/VIH</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Anemia</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Fiebre reumática</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Fiebre escarlatina</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Soplo cardiaco</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Ulceras/Colitis</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Sinusitis</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Desmayos</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-2">
+          <label>Artritis</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
            aria-label="prolapso"
@@ -731,294 +1022,6 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
           />
         </div>
 
-{/*Pendiente texto razón */}
-
-
-        <div className="col-sm-4">
-          <label>Epilepsia/Convulsiones</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Enfermedades venereas</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Gastritis</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Marcapasos</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Válvulas artificiales</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Herpes</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Glaucoma</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Asma</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Hepatitis</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Problemas del riñon</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>SIDA/VIH</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Anemia</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Fiebre reumática</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Fiebre escarlatina</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Soplo cardiaco</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Ulceras/Colitis</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Sinusitis</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Desmayos</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
-        <div className="col-sm-4">
-          <label>Artritis</label>
-          <select name="" id="prolapso" 
-           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-            </select>
-        </div>
         <div className="col-sm-4">
           <label>¿Se medica?</label>
           <select name="" id="prolapso" 
@@ -1057,7 +1060,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
           />
         </div>
         <h5>¿Es alérgico a los siguientes medicamentos?</h5>
-        <div className="col-sm-4">
+        <div className="col-sm-2">
           <label>Anestesia</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1072,7 +1075,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div>
+        <div className="col-sm-2">
         <label>Aspirina</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1087,7 +1090,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div>
+        <div className="col-sm-2">
         <label>Penicilina</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1102,7 +1105,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div>
+        <div className="col-sm-2">
         <label>Eritromicina</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1117,7 +1120,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div>
+        <div className="col-sm-2">
         <label>Látex</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1132,7 +1135,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div>
+        <div className="col-sm-2">
         <label>Tetracilina</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1147,7 +1150,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div>
+        <div className="col-sm-2">
         <label>Codeina</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1162,7 +1165,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div>
+        <div className="col-sm-3">
         <label>Otros</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1189,7 +1192,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
 
         <h2>Historial Dental</h2>
         
-        <div>
+        <div className="col-sm-6">
         <label>¿Ha tenido problemas con algún tratamiento dental previo?</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1204,7 +1207,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div>
+        <div className="col-sm-6">
         <label>¿Ha sentido dolor o molestias en la articulación témporo mandibular?</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1219,7 +1222,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div>
+        <div className="col-sm-3">
         <label>¿Le gusta su sonrisa?</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1234,7 +1237,7 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div>
+        <div className="col-sm-3">
         <label>¿Sangran sus encias?</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
@@ -1249,10 +1252,36 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
-        <div>
+        
+        <div className="col-sm-3">
+        <label>¿Cuantas veces usa hilo dental al día?</label>
+            <input
+            type="number"
+            className="form-control"
+            aria-label="prolapso_r"
+            name="prolapso_r"
+            defaultValue={form.prolapso_r}
+            onChange={handleInput}
+          />
+        </div>
+        <div className="col-sm-3">
+        <label>Última visita al odontólogo</label>
+            <input
+            type="date"
+            className="form-control"
+            aria-label="prolapso_r"
+            name="prolapso_r"
+            defaultValue={form.prolapso_r}
+            onChange={handleInput}
+          />
+        </div>
 
+
+{/* Mujeres */}
         <h5>Para mujeres</h5>
-        <label>¿Toma pi?</label>
+
+        <div className="col-sm-4">
+        <label>¿Toma píldoras anticonceptivas?</label>
           <select name="" id="prolapso" 
            className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
            aria-label="prolapso"
@@ -1266,7 +1295,46 @@ export default function CreateForm({ form, handleSubmit, handleInput }) {
             <option value="Si">Si</option>
             </select>
         </div>
+        <div className="col-sm-4">
+        <label>¿Está embarazada?</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
 
+            <label>Número de semanas</label>
+            <input
+            type="number"
+            className="form-control"
+            aria-label="prolapso_r"
+            name="prolapso_r"
+            defaultValue={form.prolapso_r}
+            onChange={handleInput}
+          />
+        </div>
+        <div className="col-sm-4">
+        <label>¿Está dando de lactar?</label>
+          <select name="" id="prolapso" 
+           className="form-control"       //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
 
 
 
