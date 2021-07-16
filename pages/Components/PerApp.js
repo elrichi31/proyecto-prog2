@@ -6,6 +6,7 @@ export default function PerApp({ appointment, handleDelete, color }) {
     <tr key={appointment._id} className={`table-${color}`}>
       <td align="center">{appointment.name}</td>
       <td align="center">{appointment.surname}</td>
+      <td align="center">Ortodoncia</td>
       <td align="center">{appointment.email}</td>
       <td align="center">{appointment.cellphone}</td>
       <td align="center">
