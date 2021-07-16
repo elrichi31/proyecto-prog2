@@ -2,6 +2,9 @@ import Navbar from "./Components/Navbar";
 import AppForm from "./Components/AppForm";
 import { useState } from "react";
 import axios from "axios";
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
+
 export default function createAppointment() {
   const [form, setValues] = useState({
     name: "",
@@ -41,7 +44,16 @@ export default function createAppointment() {
   return (
     <div>
       <Navbar></Navbar>
-      <h1>Create Appointment</h1>
+      <Head>
+        <title>Agendar cita</title>
+        <link rel="icon" href="/logo.png" />
+      </Head>
+      <h1 className={styles.title}>Agendar<font color='blue'> cita</font></h1> 
+      {/* Espacio vacio */}
+      <div> 
+        <h4> </h4> 
+      </div>
+
       <AppForm
         form={form}
         handleInput={handleInput}

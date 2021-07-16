@@ -2,6 +2,8 @@ import Navbar from "./Components/Navbar";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Router from "next/router";
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
 
 export default function listUsers() {
   const [listUsers, setListUsers] = useState([]);
@@ -28,7 +30,15 @@ export default function listUsers() {
   return (
     <div>
       <Navbar></Navbar>
-      <h1>List of users</h1>
+      <Head>
+        <title>Pacientes</title>
+        <link rel="icon" href="/logo.png" />
+      </Head>
+      <h1 className={styles.title}>Lista de<font color='blue'> Pacientes</font></h1> 
+      {/* Espacio vacio */}
+      <div> 
+        <h4> </h4> 
+      </div>
       <table className="table table-striped">
         <thead>
           <tr>

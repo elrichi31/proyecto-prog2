@@ -2,6 +2,8 @@ import Navbar from "./Components/Navbar";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import PerApp from "./Components/PerApp";
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
 export default function appointments() {
   const [app, setApp] = useState([]);
   useEffect(() => {
@@ -26,7 +28,16 @@ export default function appointments() {
   return (
     <div>
       <Navbar></Navbar>
-      <h1>Appointments</h1>
+      <Head>
+        <title>Citas</title>
+        <link rel="icon" href="/logo.png" />
+      </Head>
+      <h1 className={styles.title}>Lista de<font color='blue'> Citas</font></h1> 
+      {/* Espacio vacio */}
+      <div> 
+        <h4> </h4> 
+      </div>
+      
       <table className="table">
         <thead>
           <tr>

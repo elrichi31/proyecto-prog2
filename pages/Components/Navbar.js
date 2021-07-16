@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 //https://cdn2.iconfinder.com/data/icons/medical-collection-1/48/teeth-512.png
 
-export default function Navbar(){
+export default function Navbar() {
     return (
         <nav className={`navbar navbar-expand-lg fixed-top ${styles.container}`}>
             <div className="container-fluid">
@@ -11,17 +11,20 @@ export default function Navbar(){
                 <div className=" d-flex justify-content-end">
                     <ul className="navbar-nav">
                         <li className={`nav-item ${styles.nav_item}`}>
-                            <Link href='/createUser'><a className="nav-link text-reset">Create user</a></Link>
+                            <Link href='/createUser'><a className="nav-link text-reset">Crear usuario</a></Link>
                         </li>
                         <li className={`nav-item ${styles.nav_item}`}>
-                            <Link href='/appointments'><a className="nav-link text-reset">See appointments</a></Link>
+                            <Link href='/createAppointment'><a className="nav-link text-reset">Agendar cita</a></Link>
                         </li>
                         <li className={`nav-item ${styles.nav_item}`}>
-                            <Link href='/listUsers'><a className="nav-link text-reset">List of users</a></Link>
+                            <Link href='/appointments'><a className="nav-link text-reset">Citas</a></Link>
                         </li>
+
                         <li className={`nav-item ${styles.nav_item}`}>
-                            <Link href='/createAppointment'><a className="nav-link text-reset">Create appointment</a></Link>
-                        </li>                   
+                            <Link href='/listUsers'><a className="nav-link text-reset">Pacientes</a></Link>
+                        </li>
+
+
                     </ul>
                 </div>
             </div>
