@@ -4,6 +4,7 @@ import CreateForm from './Components/CreateForm'
 import axios from 'axios'
 export default function createUser() {
   const [form, setValues] = useState({
+    registrodate: "",
     name: "",
     email: "",
     surname: "",
@@ -18,6 +19,7 @@ export default function createUser() {
   });
   const handleSubmit = (event) => {
     axios.post(`https://prog-proyect.vercel.app/api/users`, {
+        registrodate: form.registrodate,
         name: form.name,
         email: form.email,
         surname: form.surname,
@@ -48,7 +50,7 @@ export default function createUser() {
   return (
     <div>
       <Navbar></Navbar>
-      <h1>Create user</h1>
+      <h1>Crear usuario</h1>
       <CreateForm form={form} handleSubmit={handleSubmit} handleInput={handleInput}></CreateForm>
     </div>
   );
