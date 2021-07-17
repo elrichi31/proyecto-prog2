@@ -1,11 +1,11 @@
 import Navbar from "./Components/Navbar";
-import AppForm from "./Components/AppForm";
+import InvoiceForm from "./Components/InvoiceForm";
 import { useState } from "react";
 import axios from "axios";
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function createAppointment() {
+export default function createInvoice() {
   const [form, setValues] = useState({
     name: "",
     surname: "",
@@ -26,10 +26,10 @@ export default function createAppointment() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("https://prog-proyect.vercel.app/api/appointments", form)
+      .post("https://prog-proyect.vercel.app/api/invoice", form)
       .then((response) => {
         console.log(response);
-        window.location.replace("/appointments")
+        window.location.replace("/invoice")
       })
       .catch((error) => {
         console.log(error);
@@ -45,22 +45,22 @@ export default function createAppointment() {
     <div>
       <Navbar></Navbar>
       <Head>
-        <title>Agendar cita</title>
+        <title>Facturar</title>
         <link rel="icon" href="/logo.png" />
       </Head>
       <div className="mb-4">
-      <h1 className={styles.title}>Agendar<font color='blue'> cita</font></h1> 
+      <h1 className={styles.title}>Crear<font color='blue'> factura</font></h1> 
       </div>
       
 
-      <AppForm
+      <InvoiceForm
         form={form}
         handleInput={handleInput}
         handleSubmit={handleSubmit}
         fechaSeleccionada={fecha}
         cambiarFecha={cambiarFecha}
         handleClick={handleClick}
-      ></AppForm>
+      ></InvoiceForm>
     </div>
   );
 }

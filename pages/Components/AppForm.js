@@ -59,7 +59,7 @@ export default function AppForm({
       </div>
       <div className="mb-3">
         <label htmlFor="exampleFormControlInput1" className="form-label">
-          Email address
+          Correo Electrónico
         </label>
         <input
           type="email"

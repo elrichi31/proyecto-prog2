@@ -69,7 +69,7 @@ export default function CreateForm({
           />
         </div>
         <div className="col-sm-4">
-          <label>Email</label>
+          <label>Correo Electrónico</label>
           <input
             type="text"
             className="form-control"
@@ -154,7 +154,7 @@ export default function CreateForm({
             KeyboardButtonProps={{
               "aria-label": "change date",
             }}
-            
+
           />
         </div>
         <div className="col-sm-2">
@@ -276,7 +276,10 @@ export default function CreateForm({
         <h2>Historial clínico</h2>
 
         <h3>Antecedentes Patológicos</h3>
-        <h5>¿Ha padecido o padece alguna de las siguientes condiciones?</h5>
+        <div className="mb-2">
+          <h5>¿Ha padecido o padece alguna de las siguientes condiciones?</h5>
+        </div>
+
         <div className="row">
           <QA name="q1" defaultValue={form.history.q1} toChange={handleChange}>
             Prolapso: válvula mitral
@@ -504,7 +507,10 @@ export default function CreateForm({
             onChange={handleInput}
           />
         </div>
-        <h5>¿Es alérgico a los siguientes medicamentos?</h5>
+        <div className="mb-2">
+          <h5>¿Es alérgico a los siguientes medicamentos?</h5>
+        </div>
+        
         <div className="row">
           <QA
             name="q33"
@@ -558,7 +564,7 @@ export default function CreateForm({
         </div>
         <h2>Historial Dental</h2>
 
-        <div className="col-sm-5">
+        <div className="col-sm-6">
           <label>
             ¿Ha tenido problemas con algún tratamiento dental previo?
           </label>
@@ -572,7 +578,7 @@ export default function CreateForm({
             onChange={handleInput}
           />
         </div>
-        <div className="col-sm-5">
+        <div className="col-sm-6">
           <label>
             ¿Ha sentido dolor o molestias en la articulación témporo mandibular?
           </label>
@@ -580,18 +586,18 @@ export default function CreateForm({
             type="text"
             className="form-control"
             aria-label="prolapso_r"
-            placeholder=""
+            placeholder="Especifique los sintomas"
             name="prolapso_r"
             defaultValue={form.prolapso_r}
             onChange={handleInput}
           />
         </div>
-        <div className="col-sm-2">
+        <div className="col-sm-3">
           <label>¿Le gusta su sonrisa?</label>
           <select
             name=""
             id="prolapso"
-            className="form-control" //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+            className="form-control" 
             aria-label="sonrisa"
             name="sonrisa"
             defaultValue={form.sonrisa}
@@ -603,12 +609,12 @@ export default function CreateForm({
             <option value="Si">Si</option>
           </select>
         </div>
-        <div className="">
+        <div className="col-sm-3">
           <label>¿Sangran sus encias?</label>
           <select
             name=""
             id="encias"
-            className="form-control" //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
+            className="form-control" 
             aria-label="encias"
             name="encias"
             defaultValue={form.encias}
@@ -620,26 +626,90 @@ export default function CreateForm({
             <option value="Si">Si</option>
           </select>
         </div>
-        <div className="">
-          <h5>Para mujeres</h5>
-          <label>¿Toma pi?</label>
-          <select
-            name=""
-            id="pi"
-            className="form-control" //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-            aria-label="pi"
-            name="pi"
-            defaultValue={form.pi}
+
+        <div className="col-sm-3">
+        <label>¿Cuantas veces usa hilo dental al día?</label>
+            <input
+            type="number"
+            className="form-control"
+            aria-label="prolapso_r"
+            name="prolapso_r"
+            defaultValue={form.prolapso_r}
             onChange={handleInput}
-            id="validationCustom1"
-          >
-            <option value="">Seleccionar</option>
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-          </select>
+          />
         </div>
 
-        {/* Boton */}
+      {/* Cambiar componente de fecha */}
+
+        <div className="col-sm-3">
+        <label>Última visita al odontólogo</label>
+            <input
+            type="date"
+            className="form-control"
+            aria-label="prolapso_r"
+            name="prolapso_r"
+            defaultValue={form.prolapso_r}
+            onChange={handleInput}
+          />
+        </div>
+        <h5>Para mujeres</h5>
+        <div className="col-sm-4">
+        <label>¿Toma píldoras anticonceptivas?</label>
+          <select name="" id="prolapso" 
+           className="form-control"       
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+        <div className="col-sm-4">
+        <label>¿Está embarazada?</label>
+          <select name="" id="prolapso" 
+           className="form-control"       
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+
+            <label>Número de semanas</label>
+            <input
+            type="number"
+            className="form-control"
+            aria-label="prolapso_r"
+            name="prolapso_r"
+            defaultValue={form.prolapso_r}
+            onChange={handleInput}
+          />
+        </div>
+        <div className="col-sm-4">
+        <label>¿Está dando de lactar?</label>
+          <select name="" id="prolapso" 
+           className="form-control"       
+           aria-label="prolapso"
+           name="prolapso"
+           defaultValue={form.prolapso}
+           onChange={handleInput}
+           id="validationCustom1"
+           
+          >
+            <option value="No">No</option>
+            <option value="Si">Si</option>
+            </select>
+        </div>
+
+
 
         <div className="col-3 mb-3">
           <button
