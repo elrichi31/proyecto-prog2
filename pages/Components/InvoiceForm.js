@@ -139,7 +139,7 @@ export default function InvoiceForm({
                 />
             </div>
             <div className="col-sm-1">
-                <label>Decuento %</label>
+                <label>Descuento%</label>
                 <input
                     type="number"
                     className="form-control"
@@ -179,12 +179,14 @@ export default function InvoiceForm({
                 />
             </div>
 
-
+{/* Conectar boton generar factura con PDFKIT */}
             <div className=" mt-4">
                 <button type="submit" className="btn btn-primary" onClick={handleClick}>
                     Guardar
                 </button>
+                <button className="btn btn-success">Generar Factura</button>{" "}
             </div>
+            
         </form>
     );
 }

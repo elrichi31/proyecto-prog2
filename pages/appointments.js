@@ -44,85 +44,241 @@ export default function appointments() {
       </div>
 
 
+      
+      
+      <h3>Hoy</h3>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col" className="text-center">
+              Nombre
+            </th>
+            <th scope="col" className="text-center">
+              Apellido
+            </th>
+            <th scope="col" className="text-center">
+              {" "}
+              {/* Arreglar columna */}
+              Tratamiento
+            </th>
+            <th scope="col" className="text-center">
+              Email
+            </th>
+            <th scope="col" className="text-center">
+              Celular
+            </th>
+            <th scope="col" className="text-center">
+              Dia de la cita
+            </th>
+            <th scope="col">Pago</th>
+            <th scope="col">Registrado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            app.map((appointment) => {
+              if (new Date(appointment.appointmentDate).getDate() === new Date().getDate() & new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()) {
+                if (appointment.payment) {
+                  return (
+                    <PerApp
+                      appointment={appointment}
+                      handleDelete={handleDelete}
+                      color="success"
+                      key={appointment._id}
+                    ></PerApp>
+                  );
+                } else {
+                  return (
+                    <PerApp
+                      appointment={appointment}
+                      handleDelete={handleDelete}
+                      color="danger"
+                      key={appointment._id}
+                    ></PerApp>
+                  );
+                }
+              } else if (
+                new Date(appointment.appointmentDate).getDate() > new Date().getDate() + 2 ||
+                new Date(appointment.appointmentDate).getMonth() > new Date().getMonth()
+              ) {
+                return (null)
+              } else if (
+                new Date(appointment.appointmentDate).getDate() ===
+                new Date().getDate() - 1
+              ) {
+                return (null)
+              } else if (
+                new Date(appointment.appointmentDate).getDate() === new Date().getDate() + 1 &&
+                new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()
+              ) {
+                return (null)
+              } else if (
+                new Date(appointment.appointmentDate).getDate() < new Date().getDate() + 2 ||
+                new Date(appointment.appointmentDate).getMonth() < new Date().getMonth()
+              ) {
+                return (null)
+              }
+            })
+          }
+        </tbody>
+      </table>
+      <h3>Mañana</h3>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col" className="text-center">
+              Nombre
+            </th>
+            <th scope="col" className="text-center">
+              Apellido
+            </th>
+            <th scope="col" className="text-center">
+              
+              {/* Arreglar columna */}
+              Tratamiento
+            </th>
+            <th scope="col" className="text-center">
+              Email
+            </th>
+            <th scope="col" className="text-center">
+              Celular
+            </th>
+            <th scope="col" className="text-center">
+              Dia de la cita
+            </th>
+            <th scope="col">Pago</th>
+            <th scope="col">Registrado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            app.map((appointment) => {
+              if (new Date(appointment.appointmentDate).getDate() === new Date().getDate() & new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()) {
+                return (null)
+              } else if (
+                new Date(appointment.appointmentDate).getDate() > new Date().getDate() + 2 ||
+                new Date(appointment.appointmentDate).getMonth() > new Date().getMonth()
+              ) {
+                return (null)
+              } else if (
+                new Date(appointment.appointmentDate).getDate() ===
+                new Date().getDate() - 1
+              ) {
+                return (null)
+              } else if (
+                new Date(appointment.appointmentDate).getDate() === new Date().getDate() + 1 &&
+                new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()
+              ) {
+                if (appointment.payment) {
+                  return (
+                    <PerApp
+                      appointment={appointment}
+                      handleDelete={handleDelete}
+                      color="success"
+                      key={appointment._id}
+                    ></PerApp>
+                  );
+                } else {
+                  return (
+                    <PerApp
+                      appointment={appointment}
+                      handleDelete={handleDelete}
+                      color="danger"
+                      key={appointment._id}
+                    ></PerApp>
+                  );
+                }
+              } else if (
+                new Date(appointment.appointmentDate).getDate() < new Date().getDate() + 2 ||
+                new Date(appointment.appointmentDate).getMonth() < new Date().getMonth()
+              ) {
+                return (null)
+              }
+            })
+          }
+        </tbody>
+      </table>
+      <h3>Citas Futuras</h3>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col" className="text-center">
+              Nombre
+            </th>
+            <th scope="col" className="text-center">
+              Apellido
+            </th>
+            <th scope="col" className="text-center">
+              {" "}
+              {/* Arreglar columna */}
+              Tratamiento
+            </th>
+            <th scope="col" className="text-center">
+              Email
+            </th>
+            <th scope="col" className="text-center">
+              Celular
+            </th>
+            <th scope="col" className="text-center">
+              Dia de la cita
+            </th>
+            <th scope="col">Pago</th>
+            <th scope="col">Registrado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            app.map((appointment) => {
+              if (new Date(appointment.appointmentDate).getDate() === new Date().getDate() & new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()) {
+                return (null)
+              } else if (
+                new Date(appointment.appointmentDate).getDate() > new Date().getDate() + 2 ||
+                new Date(appointment.appointmentDate).getMonth() > new Date().getMonth()
+              ) {
+                if (appointment.payment) {
+                  return (
+                    <PerApp
+                      appointment={appointment}
+                      handleDelete={handleDelete}
+                      color="success"
+                      key={appointment._id}
+                    ></PerApp>
+                  );
+                } else {
+                  return (
+                    <PerApp
+                      appointment={appointment}
+                      handleDelete={handleDelete}
+                      color="danger"
+                      key={appointment._id}
+                    ></PerApp>
+                  );
+                }
+              } else if (
+                new Date(appointment.appointmentDate).getDate() ===
+                new Date().getDate() - 1
+              ) {
+                return (null)
+              } else if (
+                new Date(appointment.appointmentDate).getDate() === new Date().getDate() + 1 &&
+                new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()
+              ) {
+                return (null)
+              } else if (
+                new Date(appointment.appointmentDate).getDate() < new Date().getDate() + 2 ||
+                new Date(appointment.appointmentDate).getMonth() < new Date().getMonth()
+              ) {
+                return (null)
+              }
+            })
+          }
+        </tbody>
+      </table>
       <hr></hr>
-      <h3>Past appointments</h3>
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col" className="text-center">
-              Nombre
-            </th>
-            <th scope="col" className="text-center">
-              Apellido
-            </th>
-            <th scope="col" className="text-center">
-              {" "}
-              {/* Arreglar columna */}
-              Tratamiento
-            </th>
-            <th scope="col" className="text-center">
-              Email
-            </th>
-            <th scope="col" className="text-center">
-              Celular
-            </th>
-            <th scope="col" className="text-center">
-              Dia de la cita
-            </th>
-            <th scope="col">Pago</th>
-            <th scope="col">Registrado</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            app.map((appointment) => {
-              if (new Date(appointment.appointmentDate).getDate() === new Date().getDate() & new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()) {
-                return (null)
-              } else if (
-                new Date(appointment.appointmentDate).getDate() > new Date().getDate() + 2 ||
-                new Date(appointment.appointmentDate).getMonth() > new Date().getMonth()
-              ) {
-                return (null)
-              } else if (
-                new Date(appointment.appointmentDate).getDate() ===
-                new Date().getDate() - 1
-              ) {
-                return (null)
-              } else if (
-                new Date(appointment.appointmentDate).getDate() === new Date().getDate() + 1 &&
-                new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()
-              ) {
-                return (null)
-              } else if (
-                new Date(appointment.appointmentDate).getDate() < new Date().getDate() + 2 ||
-                new Date(appointment.appointmentDate).getMonth() < new Date().getMonth()
-              ) {
-                if (appointment.payment) {
-                  return (
-                    <PerApp
-                      appointment={appointment}
-                      handleDelete={handleDelete}
-                      color="success"
-                      key={appointment._id}
-                    ></PerApp>
-                  );
-                } else {
-                  return (
-                    <PerApp
-                      appointment={appointment}
-                      handleDelete={handleDelete}
-                      color="danger"
-                      key={appointment._id}
-                    ></PerApp>
-                  );
-                }
-              }
-            })
-          }
-        </tbody>
-      </table>
-      <h3>Yesterday's appointments</h3>
+      <h3>Ayer</h3>
       <table className="table">
         <thead>
           <tr>
@@ -199,84 +355,9 @@ export default function appointments() {
           }
         </tbody>
       </table>
-      <h3>Today's appointments</h3>
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col" className="text-center">
-              Nombre
-            </th>
-            <th scope="col" className="text-center">
-              Apellido
-            </th>
-            <th scope="col" className="text-center">
-              {" "}
-              {/* Arreglar columna */}
-              Tratamiento
-            </th>
-            <th scope="col" className="text-center">
-              Email
-            </th>
-            <th scope="col" className="text-center">
-              Celular
-            </th>
-            <th scope="col" className="text-center">
-              Dia de la cita
-            </th>
-            <th scope="col">Pago</th>
-            <th scope="col">Registrado</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            app.map((appointment) => {
-              if (new Date(appointment.appointmentDate).getDate() === new Date().getDate() & new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()) {
-                if (appointment.payment) {
-                  return (
-                    <PerApp
-                      appointment={appointment}
-                      handleDelete={handleDelete}
-                      color="success"
-                      key={appointment._id}
-                    ></PerApp>
-                  );
-                } else {
-                  return (
-                    <PerApp
-                      appointment={appointment}
-                      handleDelete={handleDelete}
-                      color="danger"
-                      key={appointment._id}
-                    ></PerApp>
-                  );
-                }
-              } else if (
-                new Date(appointment.appointmentDate).getDate() > new Date().getDate() + 2 ||
-                new Date(appointment.appointmentDate).getMonth() > new Date().getMonth()
-              ) {
-                return (null)
-              } else if (
-                new Date(appointment.appointmentDate).getDate() ===
-                new Date().getDate() - 1
-              ) {
-                return (null)
-              } else if (
-                new Date(appointment.appointmentDate).getDate() === new Date().getDate() + 1 &&
-                new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()
-              ) {
-                return (null)
-              } else if (
-                new Date(appointment.appointmentDate).getDate() < new Date().getDate() + 2 ||
-                new Date(appointment.appointmentDate).getMonth() < new Date().getMonth()
-              ) {
-                return (null)
-              }
-            })
-          }
-        </tbody>
-      </table>
-      <h3>Tomorrow's appointments</h3>
+
+      {/*Idea: Mas recientes primero */}
+      <h3>Citas anteriores</h3>
       <table className="table">
         <thead>
           <tr>
@@ -324,72 +405,10 @@ export default function appointments() {
                 new Date(appointment.appointmentDate).getDate() === new Date().getDate() + 1 &&
                 new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()
               ) {
-                if (appointment.payment) {
-                  return (
-                    <PerApp
-                      appointment={appointment}
-                      handleDelete={handleDelete}
-                      color="success"
-                      key={appointment._id}
-                    ></PerApp>
-                  );
-                } else {
-                  return (
-                    <PerApp
-                      appointment={appointment}
-                      handleDelete={handleDelete}
-                      color="danger"
-                      key={appointment._id}
-                    ></PerApp>
-                  );
-                }
+                return (null)
               } else if (
                 new Date(appointment.appointmentDate).getDate() < new Date().getDate() + 2 ||
                 new Date(appointment.appointmentDate).getMonth() < new Date().getMonth()
-              ) {
-                return (null)
-              }
-            })
-          }
-        </tbody>
-      </table>
-      <h3>Future appointments</h3>
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col" className="text-center">
-              Nombre
-            </th>
-            <th scope="col" className="text-center">
-              Apellido
-            </th>
-            <th scope="col" className="text-center">
-              {" "}
-              {/* Arreglar columna */}
-              Tratamiento
-            </th>
-            <th scope="col" className="text-center">
-              Email
-            </th>
-            <th scope="col" className="text-center">
-              Celular
-            </th>
-            <th scope="col" className="text-center">
-              Dia de la cita
-            </th>
-            <th scope="col">Pago</th>
-            <th scope="col">Registrado</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            app.map((appointment) => {
-              if (new Date(appointment.appointmentDate).getDate() === new Date().getDate() & new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()) {
-                return (null)
-              } else if (
-                new Date(appointment.appointmentDate).getDate() > new Date().getDate() + 2 ||
-                new Date(appointment.appointmentDate).getMonth() > new Date().getMonth()
               ) {
                 if (appointment.payment) {
                   return (
@@ -410,21 +429,6 @@ export default function appointments() {
                     ></PerApp>
                   );
                 }
-              } else if (
-                new Date(appointment.appointmentDate).getDate() ===
-                new Date().getDate() - 1
-              ) {
-                return (null)
-              } else if (
-                new Date(appointment.appointmentDate).getDate() === new Date().getDate() + 1 &&
-                new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()
-              ) {
-                return (null)
-              } else if (
-                new Date(appointment.appointmentDate).getDate() < new Date().getDate() + 2 ||
-                new Date(appointment.appointmentDate).getMonth() < new Date().getMonth()
-              ) {
-                return (null)
               }
             })
           }

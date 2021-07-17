@@ -7,12 +7,16 @@ import styles from '../styles/Home.module.css'
 
 export default function createInvoice() {
   const [form, setValues] = useState({
+    //   Fecha
+    invoicenumber: "", //Revisar numero automatico
     name: "",
     surname: "",
+    passportCI: "", //Revisar CI
     cellphone: "",
-    email: "",
-    reason: "",
-    tratamiento: "",
+    address: "", //revisar direccion
+    items: "", //revisar o crear objeto de items con precio
+    discount: "", //revisar
+    //sub total, iva y total se calculan automatico, no se si se deban poner aqui
     userId: "",
     payment: false,
   });
