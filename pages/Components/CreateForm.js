@@ -154,7 +154,7 @@ export default function CreateForm({
             KeyboardButtonProps={{
               "aria-label": "change date",
             }}
-            disabled={true}
+            
           />
         </div>
         <div className="col-sm-2">
@@ -641,7 +641,7 @@ export default function CreateForm({
 
         {/* Boton */}
 
-        <div className="col-3">
+        <div className="col-3 mb-3">
           <button
             type="submit"
             className="btn btn-primary"

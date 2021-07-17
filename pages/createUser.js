@@ -71,7 +71,6 @@ export default function createUser() {
     })
   }
   const handleChange = (event) => {
-    setValues({age: getEdad(fechaNacimiento)})
     setFormCheck({
       ...formCheck,
       [event.target.name]: event.target.checked,
