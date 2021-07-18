@@ -60,7 +60,7 @@ export default function createInvoice() {
       <div className="mb-4">
       <h1 className={styles.title}>Crear<font color='blue'> factura</font></h1> 
       </div>
-      
+
 {/* Componente con la informacion y formato de los campos */}
       <InvoiceForm
         form={form}

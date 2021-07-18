@@ -3,10 +3,12 @@ import InvoiceForm from "../Components/InvoiceForm";
 import { useState } from "react";
 import axios from "axios";
 import Head from 'next/head'
-
+import {saveAs} from "file-saver"
 import styles from '../../styles/Home.module.css'
 
 export default function createInvoice() {
+  const [item, setItems] = useState({})
+  const [arr, setArr] = useState([])
   const [form, setValues] = useState({
     //   Fecha
     invoicenumber: "", //Revisar numero automatico
@@ -20,6 +22,10 @@ export default function createInvoice() {
     //sub total, iva y total se calculan automatico, no se si se deban poner aqui
     userId: "",
     payment: false,
+    cant_1: "",
+    items: [
+      {pay: 1}, {pay: 2}, {pay: 3}
+    ]
   });
   const [fecha, cambiarFecha] = useState(new Date());
   const handleInput = (event) => {
@@ -31,6 +37,11 @@ export default function createInvoice() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(form)
+    // axios.get('http://localhost:4000/api/download', {responseType: 'blob'})
+    // .then((response) =>{
+    //   const pdfBlob =  new Blob([response.data], {type: 'application/pdf'})
+    //   saveAs(pdfBlob, 'newPDF.pdf')
+    // })
     // axios
     //   .post("https://prog-proyect.vercel.app/api/invoice", form)
     //   .then((response) => {
@@ -46,10 +57,24 @@ export default function createInvoice() {
       ...form,
       appointmentDate: fecha,
     });
+    setItems({pay: 12})
   };
   const handleBlur = (event) => {
-      
+    setItems({
+      ...item,
+      [event.target.name]: event.target.value
+    })
+   
   }
+  const handleBlur2 = (event) => {
+    setItems({
+      ...item,
+      [event.target.name]: event.target.value,
+    })
+  }
+  console.log(item)
+  console.log(form)
+  console.log(arr)
   return (
     <div>
       <Navbar></Navbar>
@@ -69,6 +94,8 @@ export default function createInvoice() {
         fechaSeleccionada={fecha}
         cambiarFecha={cambiarFecha}
         handleClick={handleClick}
+        handleBlur={handleBlur}
+        handleBlur2={handleBlur2}
       ></InvoiceForm>
     </div>
   );
