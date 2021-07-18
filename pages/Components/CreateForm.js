@@ -1,13 +1,6 @@
-import {
-  DatePicker,
-  TimePicker,
-  DateTimePicker,
-  KeyboardDatePicker,
-  KeyboardTimePicker,
-} from "@material-ui/pickers";
+import { KeyboardDatePicker } from "@material-ui/pickers";
 import styles from "../../styles/dates.module.css";
 import QA from "../Components/QA";
-import { useState } from "react";
 
 export default function CreateForm({
   form,
@@ -19,7 +12,9 @@ export default function CreateForm({
   cambiarFechaRegistro,
   fechaNacimiento,
   cambiarFechaNacimiento,
-  handleBlur
+  handleBlur,
+  handleClickBt,
+  disabled = false,
 }) {
   return (
     <div>
@@ -69,7 +64,7 @@ export default function CreateForm({
           />
         </div>
         <div className="col-sm-4">
-          <label>Correo Electrónico</label>
+          <label>Email</label>
           <input
             type="text"
             className="form-control"
@@ -82,20 +77,95 @@ export default function CreateForm({
 
         <div className="col-sm-3">
           <label>Estado civil</label>
-          <select
-            id="parentesco"
-            className="form-control"
-            aria-label="Estado civil"
-            name="civilState"
-            defaultValue={form.civilState}
-            onChange={handleInput}
-          >
-            <option value="">Seleccionar</option>
-            <option value="Soltero/a">Soltero/a</option>
-            <option value="Casado/a">Casado/a</option>
-            <option value="Divorciado/a">Divorciado/a</option>
-            <option value="Unión libre">Unión libre</option>
-          </select>
+          {form.civilState === "Soltero/a" ? (
+            <select
+              className="form-control"
+              id="parentesco"
+              className="form-control"
+              aria-label="Estado civil"
+              name="civilState"
+              defaultValue={form.civilState}
+              onChange={handleInput}
+            >
+              <option value="">Seleccionar</option>
+              <option selected value="Soltero/a">
+                Soltero/a
+              </option>
+              <option value="Casado/a">Casado/a</option>
+              <option value="Divorciado/a">Divorciado/a</option>
+              <option value="Unión libre">Unión libre</option>
+            </select>
+          ) : form.civilState === "Casado/a" ? (
+            <select
+              className="form-control"
+              id="parentesco"
+              className="form-control"
+              aria-label="Estado civil"
+              name="civilState"
+              defaultValue={form.civilState}
+              onChange={handleInput}
+            >
+              <option value="">Seleccionar</option>
+              <option value="Soltero/a">Soltero/a</option>
+              <option selected value="Casado/a">
+                Casado/a
+              </option>
+              <option value="Divorciado/a">Divorciado/a</option>
+              <option value="Unión libre">Unión libre</option>
+            </select>
+          ) : form.civilState === "Divorciado/a" ? (
+            <select
+              className="form-control"
+              id="parentesco"
+              className="form-control"
+              aria-label="Estado civil"
+              name="civilState"
+              defaultValue={form.civilState}
+              onChange={handleInput}
+            >
+              <option value="">Seleccionar</option>
+              <option value="Soltero/a">Soltero/a</option>
+              <option value="Casado/a">Casado/a</option>
+              <option selected value="Divorciado/a">
+                Divorciado/a
+              </option>
+              <option value="Unión libre">Unión libre</option>
+            </select>
+          ) : form.civilState === "Unión libre" ? (
+            <select
+              className="form-control"
+              id="parentesco"
+              className="form-control"
+              aria-label="Estado civil"
+              name="civilState"
+              defaultValue={form.civilState}
+              onChange={handleInput}
+            >
+              <option value="">Seleccionar</option>
+              <option value="Soltero/a">Soltero/a</option>
+              <option value="Casado/a">Casado/a</option>
+              <option value="Divorciado/a">Divorciado/a</option>
+              <option selected value="Unión libre">
+                Unión libre
+              </option>
+            </select>
+          ) : (
+            <select
+              className="form-control"
+              id="parentesco"
+              className="form-control"
+              aria-label="Estado civil"
+              name="civilState"
+              defaultValue={form.civilState}
+              onChange={handleInput}
+            >
+              <option value="">Seleccionar</option>
+              <option value="Soltero/a">Soltero/a</option>
+              <option value="Casado/a">Casado/a</option>
+              <option value="Divorciado/a">Divorciado/a</option>
+              <option value="Unión libre">Unión libre</option>
+            </select>
+          )}
         </div>
         <div className="col-sm-3">
           <label>Nacionalidad</label>
@@ -154,7 +224,7 @@ export default function CreateForm({
             KeyboardButtonProps={{
               "aria-label": "change date",
             }}
-
+            disabled={disabled}
           />
         </div>
         <div className="col-sm-2">
@@ -255,63 +325,147 @@ export default function CreateForm({
 
         <div className="col-sm-3">
           <label>Paciente particular o convenio empresarial</label>
-          <select
-            name=""
-            id="type"
-            className="form-control" //Revisar si funcionan valores por defecto y autocompletado en otras pestañas
-            aria-label="type"
-            name="type"
-            defaultValue={form.type}
-            onChange={handleInput}
-            id="validationCustom1"
-            required
-          >
-            <option value="">Seleccionar</option>
-            <option value="Particular">Particular</option>
-            <option value="Empresarial">Empresarial</option>
-          </select>
+          {form.type === "Particular" ? (
+            <select
+              className="form-control"
+              name=""
+              id="type"
+              className="form-control"
+              aria-label="type"
+              name="type"
+              defaultValue={form.type}
+              onChange={handleInput}
+              id="validationCustom1"
+              required
+            >
+              <option value="">Seleccionar</option>
+              <option selected value="Particular">
+                Particular
+              </option>
+              <option value="Empresarial">Empresarial</option>
+            </select>
+          ) : form.type === "Empresarial" ? (
+            <select
+              className="form-control"
+              name=""
+              id="type"
+              className="form-control"
+              aria-label="type"
+              name="type"
+              defaultValue={form.type}
+              onChange={handleInput}
+              id="validationCustom1"
+              required
+            >
+              <option value="">Seleccionar</option>
+              <option value="Particular">Particular</option>
+              <option selected value="Empresarial">
+                Empresarial
+              </option>
+            </select>
+          ) : (
+            <select
+              className="form-control"
+              name=""
+              id="type"
+              className="form-control"
+              aria-label="type"
+              name="type"
+              defaultValue={form.type}
+              onChange={handleInput}
+              id="validationCustom1"
+              required
+            >
+              <option value="">Seleccionar</option>
+              <option value="Particular">Particular</option>
+              <option value="Empresarial">Empresarial</option>
+            </select>
+          )}
         </div>
 
         {/* Historial clinico */}
         <h2>Historial clínico</h2>
 
         <h3>Antecedentes Patológicos</h3>
-        <div className="mb-2">
-          <h5>¿Ha padecido o padece alguna de las siguientes condiciones?</h5>
-        </div>
-
+        <h5>¿Ha padecido o padece alguna de las siguientes condiciones?</h5>
         <div className="row">
-          <QA name="q1" defaultValue={form.history.q1} toChange={handleChange}>
+          <QA
+            name="q1"
+            defaultValue={form.history.q1}
+            toChange={handleChange}
+            handleClickBt={handleClickBt}
+          >
             Prolapso: válvula mitral
           </QA>
-          <QA name="q2" defaultValue={form.history.q2} toChange={handleChange}>
+          <QA
+            name="q2"
+            defaultValue={form.history.q2}
+            toChange={handleChange}
+            handleClickBt={handleClickBt}
+          >
             Tratamiento de radiación
           </QA>
-          <QA name="q3" defaultValue={form.history.q3} toChange={handleChange}>
+          <QA
+            name="q3"
+            defaultValue={form.history.q3}
+            toChange={handleChange}
+            handleClickBt={handleClickBt}
+          >
             Huesos artificiales
           </QA>
-          <QA name="q4" defaultValue={form.history.q4} toChange={handleChange}>
+          <QA
+            name="q4"
+            defaultValue={form.history.q4}
+            toChange={handleChange}
+            handleClickBt={handleClickBt}
+          >
             Consumo de drogas/alcohol
           </QA>
-          <QA name="q5" defaultValue={form.history.q5} toChange={handleChange}>
+          <QA
+            name="q5"
+            defaultValue={form.history.q5}
+            toChange={handleChange}
+            handleClickBt={handleClickBt}
+          >
             Dificultades respiratorias
           </QA>
-          <QA name="q6" defaultValue={form.history.q6} toChange={handleChange}>
+          <QA
+            name="q6"
+            defaultValue={form.history.q6}
+            toChange={handleChange}
+            handleClickBt={handleClickBt}
+          >
             Transfusión de sangre
           </QA>
-          <QA name="q7" defaultValue={form.history.q7} toChange={handleChange}>
+          <QA
+            name="q7"
+            defaultValue={form.history.q7}
+            toChange={handleChange}
+            handleClickBt={handleClickBt}
+          >
             Cáncer
           </QA>
-          <QA name="q8" defaultValue={form.history.q8} toChange={handleChange}>
+          <QA
+            name="q8"
+            defaultValue={form.history.q8}
+            toChange={handleChange}
+            handleClickBt={handleClickBt}
+          >
             Defecto congénito del corazón
           </QA>
-          <QA name="q9" defaultValue={form.history.q9} toChange={handleChange}>
+          <QA
+            name="q9"
+            defaultValue={form.history.q9}
+            toChange={handleChange}
+            handleClickBt={handleClickBt}
+          >
             Ataque al corazón
           </QA>
           <QA
             name="q10"
             defaultValue={form.history.q10}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Hemorragia/Sangrado fácil
           </QA>
@@ -319,6 +473,7 @@ export default function CreateForm({
             name="q11"
             defaultValue={form.history.q11}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Cirugía del corazón
           </QA>
@@ -326,6 +481,7 @@ export default function CreateForm({
             name="q12"
             defaultValue={form.history.q12}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Diabetes/Tuberculosis
           </QA>
@@ -333,6 +489,7 @@ export default function CreateForm({
             name="q13"
             defaultValue={form.history.q13}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Presión arterial alta/baja
           </QA>
@@ -340,6 +497,7 @@ export default function CreateForm({
             name="q14"
             defaultValue={form.history.q14}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Epilepsia/Convulsiones
           </QA>
@@ -347,6 +505,7 @@ export default function CreateForm({
             name="q15"
             defaultValue={form.history.q15}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Enfermedades venéreas
           </QA>
@@ -354,6 +513,7 @@ export default function CreateForm({
             name="q16"
             defaultValue={form.history.q16}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Gastritis
           </QA>
@@ -361,6 +521,7 @@ export default function CreateForm({
             name="q17"
             defaultValue={form.history.q17}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Marcapasos
           </QA>
@@ -368,6 +529,7 @@ export default function CreateForm({
             name="q18"
             defaultValue={form.history.q18}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Válvulas artificiales
           </QA>
@@ -375,6 +537,7 @@ export default function CreateForm({
             name="q19"
             defaultValue={form.history.q19}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Herpes
           </QA>
@@ -382,6 +545,7 @@ export default function CreateForm({
             name="q20"
             defaultValue={form.history.q20}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Glaucoma
           </QA>
@@ -389,6 +553,7 @@ export default function CreateForm({
             name="q21"
             defaultValue={form.history.q21}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Asma
           </QA>
@@ -396,6 +561,7 @@ export default function CreateForm({
             name="q22"
             defaultValue={form.history.q22}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Hepatitis
           </QA>
@@ -403,6 +569,7 @@ export default function CreateForm({
             name="q23"
             defaultValue={form.history.q23}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Problemas del riñón
           </QA>
@@ -410,6 +577,7 @@ export default function CreateForm({
             name="q24"
             defaultValue={form.history.q24}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             SIDA/VIH
           </QA>
@@ -417,6 +585,7 @@ export default function CreateForm({
             name="q25"
             defaultValue={form.history.q25}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Anemia
           </QA>
@@ -424,6 +593,7 @@ export default function CreateForm({
             name="q26"
             defaultValue={form.history.q26}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Fiebre reumática
           </QA>
@@ -431,6 +601,7 @@ export default function CreateForm({
             name="q27"
             defaultValue={form.history.q27}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Fiebre escarlatina
           </QA>
@@ -438,6 +609,7 @@ export default function CreateForm({
             name="q28"
             defaultValue={form.history.q28}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Soplo cardíaco
           </QA>
@@ -445,6 +617,7 @@ export default function CreateForm({
             name="q29"
             defaultValue={form.history.q29}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Ulceras/Colitis
           </QA>
@@ -452,6 +625,7 @@ export default function CreateForm({
             name="q30"
             defaultValue={form.history.q30}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Sinusitis
           </QA>
@@ -459,6 +633,7 @@ export default function CreateForm({
             name="q31"
             defaultValue={form.history.q31}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Desmayos
           </QA>
@@ -466,6 +641,7 @@ export default function CreateForm({
             name="q32"
             defaultValue={form.history.q32}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Artritis
           </QA>
@@ -507,15 +683,13 @@ export default function CreateForm({
             onChange={handleInput}
           />
         </div>
-        <div className="mb-2">
-          <h5>¿Es alérgico a los siguientes medicamentos?</h5>
-        </div>
-        
+        <h5>¿Es alérgico a los siguientes medicamentos?</h5>
         <div className="row">
           <QA
             name="q33"
             defaultValue={form.history.q33}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Anestesia
           </QA>
@@ -523,6 +697,7 @@ export default function CreateForm({
             name="q34"
             defaultValue={form.history.q34}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Aspirina
           </QA>
@@ -530,6 +705,7 @@ export default function CreateForm({
             name="q35"
             defaultValue={form.history.q35}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Penicilina
           </QA>
@@ -537,6 +713,7 @@ export default function CreateForm({
             name="q36"
             defaultValue={form.history.q36}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Eritromicina
           </QA>
@@ -544,6 +721,7 @@ export default function CreateForm({
             name="q37"
             defaultValue={form.history.q37}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Latex
           </QA>
@@ -551,6 +729,7 @@ export default function CreateForm({
             name="q38"
             defaultValue={form.history.q38}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Tetracilina
           </QA>
@@ -558,158 +737,212 @@ export default function CreateForm({
             name="q39"
             defaultValue={form.history.q39}
             toChange={handleChange}
+            handleClickBt={handleClickBt}
           >
             Codeina
           </QA>
         </div>
         <h2>Historial Dental</h2>
 
-        <div className="col-sm-6">
+        <div className="col-sm-5">
           <label>
             ¿Ha tenido problemas con algún tratamiento dental previo?
           </label>
           <input
             type="text"
             className="form-control"
-            aria-label="prolapso_r"
+            aria-label="problem"
             placeholder="Indique el inconveniente"
-            name="prolapso_r"
-            defaultValue={form.prolapso_r}
+            name="problem"
+            defaultValue={form.problem}
             onChange={handleInput}
           />
         </div>
-        <div className="col-sm-6">
+        <div className="col-sm-5">
           <label>
             ¿Ha sentido dolor o molestias en la articulación témporo mandibular?
           </label>
           <input
             type="text"
             className="form-control"
-            aria-label="prolapso_r"
-            placeholder="Especifique los sintomas"
-            name="prolapso_r"
-            defaultValue={form.prolapso_r}
+            aria-label="dolor"
+            placeholder=""
+            name="dolor"
+            defaultValue={form.dolor}
             onChange={handleInput}
           />
         </div>
-        <div className="col-sm-3">
+        <div className="col-sm-2">
           <label>¿Le gusta su sonrisa?</label>
-          <select
-            name=""
-            id="prolapso"
-            className="form-control" 
-            aria-label="sonrisa"
-            name="sonrisa"
-            defaultValue={form.sonrisa}
-            onChange={handleInput}
-            id="validationCustom1"
-          >
-            <option value="">Seleccionar</option>
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-          </select>
+          {form.sonrisa === "No" ? (
+            <select
+              className="form-control"
+              name=""
+              id="prolapso"
+              className="form-control"
+              aria-label="sonrisa"
+              name="sonrisa"
+              defaultValue={form.sonrisa}
+              onChange={handleInput}
+              id="validationCustom1"
+            >
+              <option value="">Seleccionar</option>
+              <option selected value="No">
+                No
+              </option>
+              <option value="Si">Si</option>
+            </select>
+          ) : form.sonrisa === "Si" ? (
+            <select
+              className="form-control"
+              name=""
+              id="prolapso"
+              className="form-control"
+              aria-label="sonrisa"
+              name="sonrisa"
+              defaultValue={form.sonrisa}
+              onChange={handleInput}
+              id="validationCustom1"
+            >
+              <option value="">Seleccionar</option>
+              <option value="No">No</option>
+              <option selected value="Si">
+                Si
+              </option>
+            </select>
+          ) : (
+            <select
+              className="form-control"
+              name=""
+              id="prolapso"
+              className="form-control"
+              aria-label="sonrisa"
+              name="sonrisa"
+              defaultValue={form.sonrisa}
+              onChange={handleInput}
+              id="validationCustom1"
+            >
+              <option value="">Seleccionar</option>
+              <option value="No">No</option>
+              <option value="Si">Si</option>
+            </select>
+          )}
         </div>
-        <div className="col-sm-3">
+        <div className="">
           <label>¿Sangran sus encias?</label>
-          <select
-            name=""
-            id="encias"
-            className="form-control" 
-            aria-label="encias"
-            name="encias"
-            defaultValue={form.encias}
-            onChange={handleInput}
-            id="validationCustom1"
-          >
-            <option value="">Seleccionar</option>
-            <option value="No">No</option>
-            <option value="Si">Si</option>
-          </select>
-        </div>
-
-        <div className="col-sm-3">
-        <label>¿Cuantas veces usa hilo dental al día?</label>
-            <input
-            type="number"
-            className="form-control"
-            aria-label="prolapso_r"
-            name="prolapso_r"
-            defaultValue={form.prolapso_r}
-            onChange={handleInput}
-          />
-        </div>
-
-      {/* Cambiar componente de fecha */}
-
-        <div className="col-sm-3">
-        <label>Última visita al odontólogo</label>
-            <input
-            type="date"
-            className="form-control"
-            aria-label="prolapso_r"
-            name="prolapso_r"
-            defaultValue={form.prolapso_r}
-            onChange={handleInput}
-          />
-        </div>
-        <h5>Para mujeres</h5>
-        <div className="col-sm-4">
-        <label>¿Toma píldoras anticonceptivas?</label>
-          <select name="" id="prolapso" 
-           className="form-control"       
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
+          {form.encias === "No" ? (
+            <select
+              className="form-control"
+              name=""
+              id="encias"
+              className="form-control"
+              aria-label="encias"
+              name="encias"
+              defaultValue={form.encias}
+              onChange={handleInput}
+              id="validationCustom1"
+            >
+              <option value="">Seleccionar</option>
+              <option selected value="No">
+                No
+              </option>
+              <option value="Si">Si</option>
             </select>
-        </div>
-        <div className="col-sm-4">
-        <label>¿Está embarazada?</label>
-          <select name="" id="prolapso" 
-           className="form-control"       
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
+          ) : form.encias === "Si" ? (
+            <select
+              className="form-control"
+              name=""
+              id="encias"
+              className="form-control"
+              aria-label="encias"
+              name="encias"
+              defaultValue={form.encias}
+              onChange={handleInput}
+              id="validationCustom1"
+            >
+              <option value="">Seleccionar</option>
+              <option value="No">No</option>
+              <option selected value="Si">
+                Si
+              </option>
             </select>
-
-            <label>Número de semanas</label>
-            <input
-            type="number"
-            className="form-control"
-            aria-label="prolapso_r"
-            name="prolapso_r"
-            defaultValue={form.prolapso_r}
-            onChange={handleInput}
-          />
-        </div>
-        <div className="col-sm-4">
-        <label>¿Está dando de lactar?</label>
-          <select name="" id="prolapso" 
-           className="form-control"       
-           aria-label="prolapso"
-           name="prolapso"
-           defaultValue={form.prolapso}
-           onChange={handleInput}
-           id="validationCustom1"
-           
-          >
-            <option value="No">No</option>
-            <option value="Si">Si</option>
+          ) : (
+            <select
+              className="form-control"
+              name=""
+              id="encias"
+              className="form-control"
+              aria-label="encias"
+              name="encias"
+              defaultValue={form.encias}
+              onChange={handleInput}
+              id="validationCustom1"
+            >
+              <option value="">Seleccionar</option>
+              <option value="No">No</option>
+              <option value="Si">Si</option>
             </select>
+          )}
+        </div>
+        <div className="">
+          <h5>Para mujeres</h5>
+          <label>¿Toma pi?</label>
+          {form.pi === "No" ? (
+            <select
+              className="form-control"
+              name=""
+              id="pi"
+              className="form-control"
+              aria-label="pi"
+              name="pi"
+              defaultValue={form.pi}
+              onChange={handleInput}
+              id="validationCustom1"
+            >
+              <option value="">Seleccionar</option>
+              <option selected value="No">
+                No
+              </option>
+              <option value="Si">Si</option>
+            </select>
+          ) : form.pi === "Si" ? (
+            <select
+              className="form-control"
+              name=""
+              id="pi"
+              className="form-control"
+              aria-label="pi"
+              name="pi"
+              defaultValue={form.pi}
+              onChange={handleInput}
+              id="validationCustom1"
+            >
+              <option value="">Seleccionar</option>
+              <option value="No">No</option>
+              <option selected value="Si">
+                Si
+              </option>
+            </select>
+          ) : (
+            <select
+              className="form-control"
+              name=""
+              id="pi"
+              className="form-control"
+              aria-label="pi"
+              name="pi"
+              defaultValue={form.pi}
+              onChange={handleInput}
+              id="validationCustom1"
+            >
+              <option value="">Seleccionar</option>
+              <option value="No">No</option>
+              <option value="Si">Si</option>
+            </select>
+          )}
         </div>
 
-
+        {/* Boton */}
 
         <div className="col-3 mb-3">
           <button

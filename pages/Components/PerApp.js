@@ -65,7 +65,10 @@ export default function PerApp({ appointment, handleDelete, color }) {
         >
           Actualizar
         </button>{" "}
-        <button className="btn btn-success btn-sm mb-1">Generar Factura</button>{" "}
+        <button className="btn btn-success btn-sm mb-1" onClick={(e) => {Router.push(
+              "/invoice/[appointmentId]",
+              `/invoice/${appointment._id}`
+            )}}>Generar Factura</button>{" "}
         <br></br>
         <button
           className="btn btn-danger btn-sm"

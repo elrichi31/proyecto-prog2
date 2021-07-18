@@ -16,7 +16,7 @@ export default function createUser() {
     }
     return edad
   }
-  const [formCheck, setFormCheck] = useState({});
+  const [formCheck, setFormCheck] = useState({q0: false});
   const [form, setValues] = useState({
     history: {},
     // registrodate: "",
@@ -33,29 +33,16 @@ export default function createUser() {
     // address2: "",
   });
   const handleSubmit = (event) => {
-    console.log(form);
-    // axios.post(`https://prog-proyect.vercel.app/api/users`, {
-    //     registroDate: form.registrodate,
-    //     // name: form.name,
-    //     email: form.email,
-    //     surname: form.surname,
-    //     passportCI: form.passportCI,
-    //     age: form.age,
-    //     civilState: form.civilState,
-    //     citizenship: form.citizenship,
-    //     profession: form.profession,
-    //     cellphone: form.cellphone,
-    //     address: form.address3,
-    //     address2: form.address2,
-    // })
-    //     .then(response => {
-    //       console.log(response)
-    //       window.location.replace("/listUsers")
-    //     })
-    //     .catch((error) => {
-    //         console.log(error)
-    //     })
     event.preventDefault();
+    console.log(form);
+    axios.post(`https://prog-proyect.vercel.app/api/users`, form)
+        .then(response => {
+          console.log(response)
+          window.location.replace("/listUsers")
+        })
+        .catch((error) => {
+            console.log(error)
+        })
   };
   const handleInput = (event) => {
     setValues({
@@ -69,7 +56,9 @@ export default function createUser() {
   const handleBlur = (event) => {
     setValues({
       ...form,
-      age: getEdad(fechaNacimiento)
+      age: getEdad(fechaNacimiento),
+      registryDate: fechaRegistro,
+      birthDate: fechaNacimiento,
     })
   }
   const handleChange = (event) => {
