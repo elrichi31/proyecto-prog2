@@ -1,6 +1,8 @@
 import Dates from "./Date";
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import Cell from "./Cell";
+
+// Componente con los campos y formato de crear factura/facturar
 export default function InvoiceForm({
   form,
   handleInput,

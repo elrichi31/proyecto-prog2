@@ -6,6 +6,9 @@ import Head from 'next/head';
 import Search from "./Components/Search";
 import styles from "../styles/listUsers.module.css";
 
+
+//Pagina de lista de pacientes, se puede ver, buscar y editar la informacion
+
 export default function listUsers() {
   const [listUsers, setListUsers] = useState([]);
   useEffect(() => {
@@ -32,17 +35,18 @@ export default function listUsers() {
     <div>
       <Navbar></Navbar>
       <Head>
+        {/* Pestaña */}
         <title>Pacientes</title>
         <link rel="icon" href="/logo.png" />
       </Head>
-
+{/* Titulo con estilo global */}
       <div className="mb-4">
       <h1 className={styles.title}>Lista de<font color='blue'> Pacientes</font></h1> 
       </div>
       
 
 
-
+{/* Buscador, muestra las coincidencias por nombre antes de la lista principal */}
 
       <Search users={listUsers} handleDelete={handleDelete}></Search>
       <table className={`table table-striped ${styles.table}`} >

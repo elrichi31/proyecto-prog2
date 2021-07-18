@@ -1,9 +1,13 @@
-import Navbar from "./Components/Navbar";
-import axios from "axios";
+import Navbar from "./Components/Navbar"; //Barra de navegacion
+import axios from "axios"; //Conexion al server
 import { useState, useEffect } from "react";
-import PerApp from "./Components/PerApp";
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import PerApp from "./Components/PerApp"; //Estructura de la tabla de las citas
+import Head from 'next/head' //Para el title
+import styles from '../styles/Home.module.css' //Estilo global
+
+
+// Pagina de lista de citas
+
 export default function appointments() {
   const [app, setApp] = useState([]);
   useEffect(() => {
@@ -39,13 +43,15 @@ export default function appointments() {
         <title>Citas</title>
         <link rel="icon" href="/logo.png" />
       </Head>
+
+      {/* Titulo con estilo global */}
       <div className="mb-4">
         <h1 className={styles.title}>Lista de<font color='blue'> Citas</font></h1>
       </div>
 
 
       
-      
+      {/* Seccion de citas de hoy, esta logica se repite en las demas secciones pero los if son solamente para cambiar el orden y los filtros (dias) */}
       <h3>Hoy</h3>
       <table className="table">
         <thead>
@@ -77,6 +83,7 @@ export default function appointments() {
         </thead>
         <tbody>
           {
+            // Mapeo automatico de todos los elementos de appointment (campos de las citas)
             app.map((appointment) => {
               if (new Date(appointment.appointmentDate).getDate() === new Date().getDate() & new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()) {
                 if (appointment.payment) {
@@ -123,6 +130,7 @@ export default function appointments() {
           }
         </tbody>
       </table>
+      {/* Seccion de citas de mañana */}
       <h3>Mañana</h3>
       <table className="table">
         <thead>
@@ -154,6 +162,7 @@ export default function appointments() {
         </thead>
         <tbody>
           {
+            // Logica para filtar y ordenar las citas
             app.map((appointment) => {
               if (new Date(appointment.appointmentDate).getDate() === new Date().getDate() & new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()) {
                 return (null)
@@ -200,6 +209,7 @@ export default function appointments() {
           }
         </tbody>
       </table>
+      {/* Citas con fecha = today+2 */}
       <h3>Citas Futuras</h3>
       <table className="table">
         <thead>
@@ -278,6 +288,7 @@ export default function appointments() {
         </tbody>
       </table>
       <hr></hr>
+      {/* Citas de ayer con fecha = today-1 */}
       <h3>Ayer</h3>
       <table className="table">
         <thead>
@@ -357,6 +368,7 @@ export default function appointments() {
       </table>
 
       {/*Idea: Mas recientes primero */}
+      {/* Citas con fecha = today -2 o menor */}
       <h3>Citas anteriores</h3>
       <table className="table">
         <thead>

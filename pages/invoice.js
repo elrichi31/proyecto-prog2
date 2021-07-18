@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import PerInv from "./Components/PerInv";
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+
+// Similar a appointments, esta pagina solo es una plantilla para poder agregar mas funcionalidad a futuro
+// con un apartado que almacene todas las facturas generadas (esto es extra y va mas alla de los objetivos)
 export default function appointments() {
     const [app, setApp] = useState([]);
     useEffect(() => {

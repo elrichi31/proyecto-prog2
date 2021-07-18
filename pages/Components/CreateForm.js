@@ -2,6 +2,7 @@ import { KeyboardDatePicker } from "@material-ui/pickers";
 import styles from "../../styles/dates.module.css";
 import QA from "../Components/QA";
 
+//componente con los campos y estilos para la creacion de usuarios
 export default function CreateForm({
   form,
   handleSubmit,
