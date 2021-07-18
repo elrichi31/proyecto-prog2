@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Navbar from './Components/Navbar'
 
-//testing
+
 
 export default function Home() {
   return (
@@ -16,13 +16,19 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Bienvenido a Denta<font color='blue'>List</font>
-        </h1>
+        <div className="mt-5">
+        <div className="mt-5">
+               {/* Espacio vacio para que el navbar no tape el titulo */}
+        </div>
+          <h1 className={styles.title}>
+            Bienvenido a Denta<font color='blue'>List</font>
+          </h1>
 
-        <p className={styles.description}>
-          Sistema de gestión clínica dental
-        </p>
+          <p className={styles.description}>
+            Sistema de gestión clínica dental
+          </p>
+        </div>
+
 
         <div className={styles.grid}>
           <a href='/createUser' className={styles.card}>
@@ -49,12 +55,22 @@ export default function Home() {
               Revisa o actualiza citas pasadas y pendientes. Registra pacientes con citas pero sin historial clínico. Genera facturas y lleva un registro del pago.
             </p>
           </a>
+
+          <a href="/createInvoice" className={styles.card} >
+            <h2>Facturar &rarr;</h2>
+            <p>Crea y edita la información de facturación de una cita o artículo.</p>
+          </a>
+
+          <a href="/invoice" className={styles.card} >
+            <h2>Facturas &rarr;</h2>
+            <p>Revisa el registro de facturas creadas anteriormente.</p>
+          </a>
         </div>
       </main>
 
       <footer className={styles.footer}>
         <a target="_blank" rel="noopener noreferrer">
-          Proyecto de programación 2 
+          Proyecto de programación 2
         </a>
       </footer>
     </div>
