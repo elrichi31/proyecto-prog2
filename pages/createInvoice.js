@@ -57,14 +57,14 @@ export default function createInvoice() {
       </div>
       
 
-      <InvoiceForm
+      {/* <InvoiceForm
         form={form}
         handleInput={handleInput}
         handleSubmit={handleSubmit}
         fechaSeleccionada={fecha}
         cambiarFecha={cambiarFecha}
         handleClick={handleClick}
-      ></InvoiceForm>
+      ></InvoiceForm> */}
     </div>
   );
 }

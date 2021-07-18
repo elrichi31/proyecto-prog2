@@ -8,7 +8,8 @@ export default function InvoiceForm({
   fechaSeleccionada,
   cambiarFecha,
   handleClick,
-  handleBlur
+  handleBlur,
+  handleBlur2
 }) {
   return (
     <form className="row g-3 needs-validation" onSubmit={handleSubmit}>
@@ -124,8 +125,8 @@ export default function InvoiceForm({
           required
         />
       </div>
-      <Cell form={form} handleInput={handleInput}></Cell>
-      <Cell form={form} handleInput={handleInput}></Cell>
+      <Cell form={form} handleInput={handleBlur} name='1'></Cell>
+      <Cell form={form} handleInput={handleBlur} name='2'></Cell>
       <Cell form={form} handleInput={handleInput}></Cell>
       <Cell form={form} handleInput={handleInput}></Cell>
       <Cell form={form} handleInput={handleInput}></Cell>
