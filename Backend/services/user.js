@@ -15,19 +15,7 @@ class UsersService {
         return user || {}
     }
     async createUser({user}){
-        const newUser = new User({
-            name: user.name,
-            surname: user.surname,
-            email: user.email,
-            age: user.age,
-            passportCI: user.passportCI,
-            cellphone: user.cellphone,
-            citizenship: user.citizenship,
-            civilState: user.civilState,
-            profession: user.profession,
-            address: user.address,
-            address2: user.address2,
-        })
+        const newUser = new User(user)
         const createUserId = await newUser.save().then(user => {return user._id}).catch(err => {return err})
         return createUserId
     }
