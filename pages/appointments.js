@@ -260,7 +260,7 @@ export default function appointments() {
                 return (null)
               } else if (
                 new Date(appointment.appointmentDate).getDate() > new Date().getDate() + 2 ||
-                new Date(appointment.appointmentDate).getMonth() > new Date().getMonth()
+                new Date(appointment.appointmentDate).getMonth() > new Date().getMonth() || new Date(appointment.appointmentDate).getYear() > new Date().getYear()
               ) {
                 if (appointment.payment) {
                   return (
@@ -344,7 +344,7 @@ export default function appointments() {
                 return (null)
               } else if (
                 new Date(appointment.appointmentDate).getDate() ===
-                new Date().getDate() - 1
+                new Date().getDate() - 1 & new Date(appointment.appointmentDate).getMonth() === new Date().getMonth()
               ) {
                 if (appointment.payment) {
                   return (
@@ -433,8 +433,8 @@ export default function appointments() {
               ) {
                 return (null)
               } else if (
-                new Date(appointment.appointmentDate).getDate() < new Date().getDate() + 2 ||
-                new Date(appointment.appointmentDate).getMonth() < new Date().getMonth()
+                new Date(appointment.appointmentDate).getFullYear() < new Date().getFullYear() ||
+                new Date(appointment.appointmentDate).getMonth() < new Date().getMonth() || new Date(appointment.appointmentDate).getDay() < new Date().getDay() + 2
               ) {
                 if (appointment.payment) {
                   return (
