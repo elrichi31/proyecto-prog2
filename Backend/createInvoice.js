@@ -16,7 +16,7 @@ function createInvoice(invoice, path) {
 
 function generateHeader(doc) {
   doc
-    .image("logo.png", 50, 45, { width: 50 }) //reemplazar logo con la ruta de logo en public
+    .image(`${__dirname}/dent.png`, 50, 45, { width: 50 }) //reemplazar logo con la ruta de logo en public
     .fillColor("#444444")
     .fontSize(20)
     .text("DentaList", 110, 57)
