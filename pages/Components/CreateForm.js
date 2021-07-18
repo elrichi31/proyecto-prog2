@@ -886,7 +886,7 @@ export default function CreateForm({
         </div>
         <div className="">
           <h5>Para mujeres</h5>
-          <label>¿Toma pi?</label>
+          <label>¿Toma píldoras anticonceptivas?</label>
           {form.pi === "No" ? (
             <select
               className="form-control"
