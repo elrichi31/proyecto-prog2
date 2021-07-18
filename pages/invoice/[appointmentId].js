@@ -1,32 +1,65 @@
 import Navbar from "../Components/Navbar";
 import InvoiceForm from "../Components/InvoiceForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import axios from "axios";
-import Head from 'next/head'
-import {saveAs} from "file-saver"
-import styles from '../../styles/Home.module.css'
+import Head from "next/head";
+import { saveAs } from "file-saver";
+import styles from "../../styles/Home.module.css";
 
 export default function createInvoice() {
-  const [item, setItems] = useState({})
-  const [arr, setArr] = useState([])
+  const router = useRouter();
+  const id = router.query;
   const [form, setValues] = useState({
-    //   Fecha
-    invoicenumber: "", //Revisar numero automatico
     name: "",
     surname: "",
-    passportCI: "", //Revisar CI
+    passportCI: "",
     cellphone: "",
-    address: "", //revisar direccion
-    items: "", //revisar o crear objeto de items con precio
-    discount: "", //revisar
-    //sub total, iva y total se calculan automatico, no se si se deban poner aqui
+    address: "",
+    discount: "",
     userId: "",
-    payment: false,
-    cant_1: "",
-    items: [
-      {pay: 1}, {pay: 2}, {pay: 3}
-    ]
+    item_1: "",
+    item_2: "",
+    item_3: "",
+    item_4: "",
+    quantity_1: "",
+    quantity_2: "",
+    quantity_3: "",
+    quantity_4: "",
+    price_1: "",
+    price_2: "",
+    price_3: "",
+    price_4: "",
   });
+  useEffect(() => {
+    axios
+      .get(`https://prog-proyect.vercel.app/api/appointments/${id.appointmentId}`)
+      .then((response) => {
+        setValues({
+          name: response.data.data[0].name,
+          surname: response.data.data[0].surname,
+          passportCI: "",
+          cellphone: response.data.data[0].cellphone,
+          email: response.data.data[0].email,
+          address: "",
+          discount: "",
+          userId: "",
+          item_1: "",
+          item_2: "",
+          item_3: "",
+          item_4: "",
+          quantity_1: "",
+          quantity_2: "",
+          quantity_3: "",
+          quantity_4: "",
+          price_1: "",
+          price_2: "",
+          price_3: "",
+          price_4: "",
+          _id: id.appointmentId,
+        });
+      });
+  }, []);
   const [fecha, cambiarFecha] = useState(new Date());
   const handleInput = (event) => {
     setValues({
@@ -36,45 +69,40 @@ export default function createInvoice() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(form)
-    // axios.get('http://localhost:4000/api/download', {responseType: 'blob'})
-    // .then((response) =>{
-    //   const pdfBlob =  new Blob([response.data], {type: 'application/pdf'})
-    //   saveAs(pdfBlob, 'newPDF.pdf')
-    // })
-    // axios
-    //   .post("https://prog-proyect.vercel.app/api/invoice", form)
-    //   .then((response) => {
-    //     console.log(response);
-    //     window.location.replace("/invoice")
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    console.log(form);
+    axios
+      .put(`https://prog-proyect.vercel.app/api/appointments/${id.appointmentId}`, {
+        payment: true,
+      })
+      .then(() => {
+        axios.post(`https://prog-proyect.vercel.app/api/download`, form).then(() => {
+          axios
+            .get("https://prog-proyect.vercel.app/api/download", { responseType: "blob" })
+            .then((response) => {
+              const pdfBlob = new Blob([response.data], {
+                type: "application/pdf",
+              });
+              saveAs(pdfBlob, "newPDF.pdf");
+              window.location.replace("/appointments")
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }).catch((error) => {console.log(error)});
+      }).catch((error) => {console.log(error)});
   };
   const handleClick = (event) => {
     setValues({
       ...form,
       appointmentDate: fecha,
     });
-    setItems({pay: 12})
   };
   const handleBlur = (event) => {
-    setItems({
-      ...item,
-      [event.target.name]: event.target.value
-    })
-   
-  }
-  const handleBlur2 = (event) => {
-    setItems({
-      ...item,
+    setValues({
+      ...form,
       [event.target.name]: event.target.value,
-    })
-  }
-  console.log(item)
-  console.log(form)
-  console.log(arr)
+    });
+  };
   return (
     <div>
       <Navbar></Navbar>
@@ -83,9 +111,10 @@ export default function createInvoice() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <div className="mb-4">
-      <h1 className={styles.title}>Crear<font color='blue'> factura</font></h1> 
+        <h1 className={styles.title}>
+          Crear<font color="blue"> factura</font>
+        </h1>
       </div>
-      
 
       <InvoiceForm
         form={form}
@@ -95,8 +124,11 @@ export default function createInvoice() {
         cambiarFecha={cambiarFecha}
         handleClick={handleClick}
         handleBlur={handleBlur}
-        handleBlur2={handleBlur2}
       ></InvoiceForm>
     </div>
   );
 }
+createInvoice.getInitialProps = async (ctx) => {
+  const appointmentId = ctx.query;
+  return { appointmentId: appointmentId };
+};

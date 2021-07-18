@@ -58,10 +58,10 @@ export default function Home() {
             </p>
           </a>
 
-          <a href="/createInvoice" className={styles.card} >
+          {/* <a href="/createInvoice" className={styles.card} >
             <h2>Facturar &rarr;</h2>
             <p>Crea y edita la información de facturación de una cita o artículo.</p>
-          </a>
+          </a> */}
 
 {/* Extra para agregar en el futuro */}
 

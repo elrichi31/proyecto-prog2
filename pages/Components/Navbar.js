@@ -33,11 +33,11 @@ export default function Navbar() {
                 <a className="nav-link text-reset">Pacientes</a>
               </Link>
             </li>
-            <li className={`nav-item ${styles.nav_item}`}>
+            {/* <li className={`nav-item ${styles.nav_item}`}>
               <Link href="/createInvoice">
                 <a className="nav-link text-reset">Facturar</a>
               </Link>
-            </li>
+            </li> */}
             {/*Plantilla para la posible extension almacenando facturas (mas alla de los objetivos)  */}
 
             {/* <li className={`nav-item ${styles.nav_item}`}>

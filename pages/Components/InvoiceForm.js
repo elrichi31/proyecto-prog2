@@ -129,60 +129,25 @@ export default function InvoiceForm({
       </div>
       <Cell form={form} handleInput={handleBlur} name='1'></Cell>
       <Cell form={form} handleInput={handleBlur} name='2'></Cell>
-      <Cell form={form} handleInput={handleInput}></Cell>
-      <Cell form={form} handleInput={handleInput}></Cell>
-      <Cell form={form} handleInput={handleInput}></Cell>
-      <div className="d-flex justify-content-end">
+      <Cell form={form} handleInput={handleBlur} name='3'></Cell>
+      <Cell form={form} handleInput={handleBlur} name='4'></Cell>
+      <div className=" col-sm-1">
+        <label className="form-label">Descuento</label>
         <input
           type="number"
-          placeholder="subtotal"
-          name="subtotal"
-          defaultValue={form.subtotal}
-          onChange={handleInput}
-          className="input-group-text w-10 p-1"
-        ></input>
-      </div>
-      <div className="d-flex justify-content-end">
-        <input
-          type="number"
-          name="iva"
-          defaultValue={form.iva}
-          onChange={handleInput}
-          placeholder="IVA 12%"
-          className="input-group-text w-10 p-1"
-        ></input>
-      </div>
-      <div className="d-flex justify-content-end">
-        <input
-          type="number"
+          className="form-control"
+          aria-label="celular"
           name="discount"
-          defaultValue={form.discount}
+          placeholder="%"
           onChange={handleInput}
-          placeholder="Descuento 0%"
-          className="input-group-text w-10 p-1"
-        ></input>
-      </div>
-      <div className="d-flex justify-content-end">
-        <input
-          type="number"
-          name="total"
-          defaultValue={form.total}
-          onChange={handleInput}
-          placeholder="Total"
-          className="input-group-text w-10 p-1"
-        ></input>
+          id="validationCustom1"
+          required
+        />
       </div>
 
       {/* Conectar boton generar factura con PDFKIT */}
       <div className=" mt-3 mb-3">
-        <button
-          type="submit"
-          className="btn btn-primary me-4"
-          onClick={handleClick}
-        >
-          Guardar
-        </button>
-        <button className="btn btn-success">Generar Factura</button>{" "}
+        <button className="btn btn-success" type="submit">Generar Factura</button>{" "}
       </div>
     </form>
   );

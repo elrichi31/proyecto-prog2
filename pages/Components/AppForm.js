@@ -81,7 +81,7 @@ export default function AppForm({
           className="form-control"
           id="exampleFormControlTextarea1"
           rows="1"
-          defaultValue={form.reason}
+          defaultValue={form.treatment}
           onChange={handleInput}
           name="tratamiento"
         ></textarea>

@@ -1,7 +1,7 @@
 import Dates from "./Date";
 import Router from "next/router";
 // Componente para cada una de las filas de la pagina de citas, es decir, muestra cada cita con su info correspondiente
-export default function PerApp({ appointment, handleDelete, color }) {
+export default function PerApp({ appointment, handleDelete, color, handleDownload }) {
   return (
     <tr key={appointment._id} className={`table-${color}`}>
       <td align="center">{appointment.name}</td>
@@ -65,10 +65,13 @@ export default function PerApp({ appointment, handleDelete, color }) {
         >
           Actualizar
         </button>{" "}
-        <button className="btn btn-success btn-sm mb-1" onClick={(e) => {Router.push(
+        <button className="btn btn-success btn-sm mb-1" type="submit" onClick={(e) =>
+            Router.push(
               "/invoice/[appointmentId]",
               `/invoice/${appointment._id}`
-            )}}>Generar Factura</button>{" "}
+            )
+          }
+        >Generar Factura</button>{" "}
         <br></br>
         <button
           className="btn btn-danger btn-sm"

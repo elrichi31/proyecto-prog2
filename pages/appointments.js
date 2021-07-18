@@ -4,12 +4,15 @@ import { useState, useEffect } from "react";
 import PerApp from "./Components/PerApp"; //Estructura de la tabla de las citas
 import Head from 'next/head' //Para el title
 import styles from '../styles/Home.module.css' //Estilo global
+import {saveAs} from "file-saver"
 
 
 // Pagina de lista de citas
 
 export default function appointments() {
   const [app, setApp] = useState([]);
+  const [user, setUser] = useState()
+
   useEffect(() => {
     axios
       .get("https://prog-proyect.vercel.app/api/appointments")
@@ -36,6 +39,15 @@ export default function appointments() {
         console.log(response);
       });
   };
+  const handleDownload = (user) => {
+    axios.post('http://localhost:4000/api/download', user).then((response) => {
+      axios.get('http://localhost:4000/api/download', {responseType: 'blob'})
+      .then((response) => {
+        const pdfBlob = new Blob([response.data], {type: 'application/pdf'})
+        saveAs(pdfBlob, 'newPDF.pdf')
+      }).catch((error) => {console.log(error)})
+    }).catch((error) => {console.log(error)})
+  }
   return (
     <div>
       <Navbar></Navbar>
@@ -93,6 +105,7 @@ export default function appointments() {
                       handleDelete={handleDelete}
                       color="success"
                       key={appointment._id}
+                      handleDownload={handleDownload}
                     ></PerApp>
                   );
                 } else {
@@ -102,6 +115,7 @@ export default function appointments() {
                       handleDelete={handleDelete}
                       color="danger"
                       key={appointment._id}
+                      handleDownload={handleDownload}
                     ></PerApp>
                   );
                 }

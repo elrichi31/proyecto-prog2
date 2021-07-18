@@ -15,9 +15,10 @@ export default function createAppointment() {
     cellphone: "",
     email: "",
     reason: "",
-    tratamiento: "",
+    treatment: "",
     userId: "",
     payment: false,
+
   });
   //Las fechas se manejan de forma especial (nuevo objeto) para poder guardar la info en la base de datos (nube)
   const [fecha, cambiarFecha] = useState(new Date());
