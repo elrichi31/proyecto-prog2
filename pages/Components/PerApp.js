@@ -1,6 +1,6 @@
 import Dates from "./Date";
 import Router from "next/router";
-
+// Componente para cada una de las filas de la pagina de citas, es decir, muestra cada cita con su info correspondiente
 export default function PerApp({ appointment, handleDelete, color }) {
   return (
     <tr key={appointment._id} className={`table-${color}`}>

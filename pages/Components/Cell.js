@@ -1,4 +1,7 @@
+
+//Componente de los items de las facturas
 export default function Cell({form, handleInput, name, defaultValue, handleBlur2}) {
+
   return (
     <div className="input-group">
       <div className="col-sm-2">

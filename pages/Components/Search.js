@@ -2,6 +2,8 @@ import styles1 from "../../styles/search.module.css";
 import { useState } from "react";
 import Router from "next/router";
 
+//Componente correspondiente a la barra de busqueda
+
 export default function Search({ users, handleDelete }) {
     const [listUsers, setListUsers] = useState(users);
   const [word, setWord] = useState([]);

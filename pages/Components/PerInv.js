@@ -1,6 +1,9 @@
 import Dates from "./Date";
 import Router from "next/router";
 
+// Plantilla similar a perAPP, serviria para mostrar cada una de las facturas guardadas
+// esto es una posible ampliacion (extra, va mas alla de los objetivos)
+
 export default function PerInv({ invoice, handleDelete, color }) {
   return (
     <tr key={invoice._id} className={`table-${color}`}>

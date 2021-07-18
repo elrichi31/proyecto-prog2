@@ -1,6 +1,7 @@
 import styles from "../../styles/navbar.module.css";
 import Link from "next/link";
 
+// Componente de barra de navegacion con referencia a los demas apartados y presente en todas las paginas
 export default function Navbar() {
   return (
     <nav className={`navbar navbar-expand-lg fixed-top ${styles.container}`}>
@@ -37,11 +38,13 @@ export default function Navbar() {
                 <a className="nav-link text-reset">Facturar</a>
               </Link>
             </li>
-            <li className={`nav-item ${styles.nav_item}`}>
+            {/*Plantilla para la posible extension almacenando facturas (mas alla de los objetivos)  */}
+
+            {/* <li className={`nav-item ${styles.nav_item}`}>
               <Link href="/invoice">
                 <a className="nav-link text-reset">Facturas</a>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

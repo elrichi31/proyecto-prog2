@@ -2,6 +2,8 @@ import { DatePicker, TimePicker, DateTimePicker } from '@material-ui/pickers'
 import {useState} from 'react'
 import styles from '../../styles/dates.module.css'
 
+//forma especial de manejar la fecha para poder conectar al servidor
+
 export default function Dates({type, define = new Date(), fechaSeleccionada, cambiarFecha}){
     // const [fechaSeleccionada, cambiarFecha] = useState(new Date())
     if(type === "fecha"){

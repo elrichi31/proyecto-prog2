@@ -1,5 +1,7 @@
 import Dates from "./Date";
 
+// Componente que contiene los campos y su formato para la creacion de citas
+//Cada div es un nuevo campo, la propiedad col-sm indica cuantas columnas ocupa
 export default function AppForm({
   form,
   handleInput,

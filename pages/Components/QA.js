@@ -1,3 +1,5 @@
+//Componente de los checkboxes de la historia clinica, para no mostrar select con si y no 
+//preferible a los select porque ocupa menos espacio y mejoran la experiencia de uso
 
 export default function QA({name, defaultValue, toChange, children, handleClickBt}){
     return (

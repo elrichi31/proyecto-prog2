@@ -1,6 +1,8 @@
 import Dates from "./Date";
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import Cell from "./Cell";
+
+// Componente con los campos y formato de crear factura/facturar
 export default function InvoiceForm({
   form,
   handleInput,
@@ -147,6 +149,16 @@ export default function InvoiceForm({
           defaultValue={form.iva}
           onChange={handleInput}
           placeholder="IVA 12%"
+          className="input-group-text w-10 p-1"
+        ></input>
+      </div>
+      <div className="d-flex justify-content-end">
+        <input
+          type="number"
+          name="discount"
+          defaultValue={form.discount}
+          onChange={handleInput}
+          placeholder="Descuento 0%"
           className="input-group-text w-10 p-1"
         ></input>
       </div>

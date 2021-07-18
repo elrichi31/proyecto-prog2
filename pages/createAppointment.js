@@ -5,8 +5,11 @@ import axios from "axios";
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
+// Pagina correspondiente a crear citas
+
 export default function createAppointment() {
   const [form, setValues] = useState({
+    // Estos son todos los valores por defecto de los campos
     name: "",
     surname: "",
     cellphone: "",
@@ -16,6 +19,7 @@ export default function createAppointment() {
     userId: "",
     payment: false,
   });
+  //Las fechas se manejan de forma especial (nuevo objeto) para poder guardar la info en la base de datos (nube)
   const [fecha, cambiarFecha] = useState(new Date());
   const handleInput = (event) => {
     setValues({
@@ -44,15 +48,19 @@ export default function createAppointment() {
   return (
     <div>
       <Navbar></Navbar>
+
       <Head>
+        {/* Para que la pestaña tenga nombre y logo de la app */}
         <title>Agendar cita</title>
         <link rel="icon" href="/logo.png" />
       </Head>
+
+      {/*Titulo con estilo global  */}
       <div className="mb-4">
       <h1 className={styles.title}>Agendar<font color='blue'> cita</font></h1> 
       </div>
       
-
+{/* Usamos el componente appform donde estan guardados todos los campos (esto incluye su formato) */}
       <AppForm
         form={form}
         handleInput={handleInput}

@@ -2,6 +2,7 @@ import { KeyboardDatePicker } from "@material-ui/pickers";
 import styles from "../../styles/dates.module.css";
 import QA from "../Components/QA";
 
+//componente con los campos y estilos para la creacion de usuarios
 export default function CreateForm({
   form,
   handleSubmit,
@@ -886,7 +887,7 @@ export default function CreateForm({
         </div>
         <div className="">
           <h5>Para mujeres</h5>
-          <label>¿Toma pi?</label>
+          <label>¿Toma píldoras anticonceptivas?</label>
           {form.pi === "No" ? (
             <select
               className="form-control"
