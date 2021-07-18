@@ -37,11 +37,11 @@ export default function Navbar() {
                 <a className="nav-link text-reset">Facturar</a>
               </Link>
             </li>
-            <li className={`nav-item ${styles.nav_item}`}>
+            {/* <li className={`nav-item ${styles.nav_item}`}>
               <Link href="/invoice">
                 <a className="nav-link text-reset">Facturas</a>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

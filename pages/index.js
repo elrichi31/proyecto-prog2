@@ -61,10 +61,11 @@ export default function Home() {
             <p>Crea y edita la información de facturación de una cita o artículo.</p>
           </a>
 
-          <a href="/invoice" className={styles.card} >
+{/* Extra para agregar en el futuro */}
+          {/* <a href="/invoice" className={styles.card} >
             <h2>Facturas &rarr;</h2>
             <p>Revisa el registro de facturas creadas anteriormente.</p>
-          </a>
+          </a> */}
         </div>
       </main>
 

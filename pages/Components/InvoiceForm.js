@@ -152,6 +152,16 @@ export default function InvoiceForm({
       <div className="d-flex justify-content-end">
         <input
           type="number"
+          name="discount"
+          defaultValue={form.discount}
+          onChange={handleInput}
+          placeholder="Descuento 0%"
+          className="input-group-text w-10 p-1"
+        ></input>
+      </div>
+      <div className="d-flex justify-content-end">
+        <input
+          type="number"
           name="total"
           defaultValue={form.total}
           onChange={handleInput}
