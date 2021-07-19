@@ -75,15 +75,15 @@ export default function createInvoice() {
         payment: true,
       })
       .then(() => {
-        axios.post(`https://prog-proyect.vercel.app/api/download`, form).then(() => {
+        axios.post(`http://localhost:4000/api/download`, form).then(() => {
           axios
-            .get("https://prog-proyect.vercel.app/api/download", { responseType: "blob" })
+            .get("http://localhost:4000/api/download", { responseType: "blob" })
             .then((response) => {
               const pdfBlob = new Blob([response.data], {
                 type: "application/pdf",
               });
               saveAs(pdfBlob, "newPDF.pdf");
-              window.location.replace("/appointments")
+              //window.location.replace("/appointments")
             })
             .catch((error) => {
               console.log(error);

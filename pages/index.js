@@ -17,10 +17,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <div className="mt-5">
-        <div className="mt-5">
-               {/* Espacio vacio para que el navbar no tape el titulo */}
-        </div>
+        <div className="">
+        
         {/* Titulo y descripcion */}
           <h1 className={styles.title}>
             Bienvenido a Denta<font color='blue'>List</font>

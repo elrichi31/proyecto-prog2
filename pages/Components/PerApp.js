@@ -7,7 +7,7 @@ export default function PerApp({ appointment, handleDelete, color, handleDownloa
       <td align="center">{appointment.name}</td>
       <td align="center">{appointment.surname}</td>
       {/* Falta conectar tratamiento al server */}
-      <td align="center">{appointment.tratamiento}</td>
+      <td align="center">{appointment.reason}</td>
       <td align="center">{appointment.email}</td>
       <td align="center">{appointment.cellphone}</td>
       <td align="center">
@@ -81,7 +81,7 @@ export default function PerApp({ appointment, handleDelete, color, handleDownloa
         >
           Borrar
         </button>{" "}
-        {appointment.userId === "" ? (
+        {/* {appointment.userId === "" ? (
           <button
             className="btn btn-info btn-sm"
             onClick={(e) =>
@@ -93,7 +93,7 @@ export default function PerApp({ appointment, handleDelete, color, handleDownloa
           >
             Crear usuario
           </button>
-        ) : null}
+        ) : null} */}
       </td>
     </tr>
   );

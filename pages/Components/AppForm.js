@@ -73,7 +73,7 @@ export default function AppForm({
           name="email"
         />
       </div>
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <label htmlFor="exampleFormControlTextarea1" className="form-label">
           Tratamiento
         </label>
@@ -85,7 +85,7 @@ export default function AppForm({
           onChange={handleInput}
           name="tratamiento"
         ></textarea>
-      </div>
+      </div> */}
       <div className="mb-3">
         <label htmlFor="exampleFormControlTextarea1" className="form-label">
           Razón de la cita
